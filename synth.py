@@ -26,25 +26,23 @@ repository = gcp.RepositoryGenerator(
     "https://github.com/chingor13/discovery-artifact-manager.git"
 )
 
-python_path = os.getenv("PYTHONPATH", ".")
-environment = os.environ
-environment["PYTHONPATH"] = f"{python_path}:{repository.repository}/google-api-client-generator/src"
-
-logging.info(environment)
-
 commands = [
     "mkdir -p output_dir",
-    "python2 -m pip install --upgrade pip",
     "python2 -m pip install django==1.8.12 httplib2 google-apputils python-gflags google-api-python-client",
 ]
 
+# run the generator for each discovery json file
 for file in glob.glob(str(repository.repository / "discoveries/*.v*.json")):
-    logging.info(file)
     disco = os.path.relpath(file, repository.repository)
-    logging.info(disco)
     commands.append(f"python2 google-api-client-generator/src/googleapis/codegen/generate_library.py --output_dir=./output_dir --input={disco} --language=php --language_variant=1.2.0")
+
+# need to set the PYTHONPATH for finding local source
+repository_path = f"{repository.repository}/google-api-client-generator/src"
+python_path = os.getenv("PYTHONPATH")
+environment = os.environ
+environment["PYTHONPATH"] = repository_path if python_path is None else f"{python_path}:{repository_path}
 
 library = repository.repository_library(commands, env=environment)
 
-# copy src, test, samples directories
+# copy src
 s.copy(library / "output_dir", "src/Google/Service/")
