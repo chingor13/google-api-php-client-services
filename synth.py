@@ -40,7 +40,7 @@ for file in glob.glob(str(repository.repository / "discoveries/*.v*.json")):
 repository_path = f"{repository.repository}/google-api-client-generator/src"
 python_path = os.getenv("PYTHONPATH")
 environment = os.environ
-environment["PYTHONPATH"] = repository_path if python_path is None else f"{python_path}:{repository_path}
+environment["PYTHONPATH"] = repository_path if python_path is None else f"{python_path}:{repository_path}"
 
 library = repository.repository_library(commands, env=environment)
 
