@@ -28,7 +28,7 @@ repository = gcp.RepositoryGenerator(
 
 commands = [
     "mkdir -p output_dir",
-    "python2 -m pip install django==1.8.12 httplib2 google-apputils python-gflags google-api-python-client",
+    "pip install django==1.8.12 httplib2 google-apputils python-gflags google-api-python-client",
 ]
 
 # run the generator for each discovery json file
