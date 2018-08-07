@@ -19,7 +19,9 @@ class Google_Service_Pubsub_ModifyAckDeadlineRequest extends Google_Collection
 {
   protected $collection_key = 'ackIds';
   public $ackDeadlineSeconds;
+  public $ackId;
   public $ackIds;
+  public $subscription;
 
   public function setAckDeadlineSeconds($ackDeadlineSeconds)
   {
@@ -29,6 +31,14 @@ class Google_Service_Pubsub_ModifyAckDeadlineRequest extends Google_Collection
   {
     return $this->ackDeadlineSeconds;
   }
+  public function setAckId($ackId)
+  {
+    $this->ackId = $ackId;
+  }
+  public function getAckId()
+  {
+    return $this->ackId;
+  }
   public function setAckIds($ackIds)
   {
     $this->ackIds = $ackIds;
@@ -36,5 +46,13 @@ class Google_Service_Pubsub_ModifyAckDeadlineRequest extends Google_Collection
   public function getAckIds()
   {
     return $this->ackIds;
+  }
+  public function setSubscription($subscription)
+  {
+    $this->subscription = $subscription;
+  }
+  public function getSubscription()
+  {
+    return $this->subscription;
   }
 }

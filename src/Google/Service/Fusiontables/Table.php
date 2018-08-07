@@ -21,7 +21,6 @@ class Google_Service_Fusiontables_Table extends Google_Collection
   public $attribution;
   public $attributionLink;
   public $baseTableIds;
-  public $columnPropertiesJsonSchema;
   protected $columnsType = 'Google_Service_Fusiontables_Column';
   protected $columnsDataType = 'array';
   public $description;
@@ -30,8 +29,6 @@ class Google_Service_Fusiontables_Table extends Google_Collection
   public $name;
   public $sql;
   public $tableId;
-  public $tablePropertiesJson;
-  public $tablePropertiesJsonSchema;
 
   public function setAttribution($attribution)
   {
@@ -56,14 +53,6 @@ class Google_Service_Fusiontables_Table extends Google_Collection
   public function getBaseTableIds()
   {
     return $this->baseTableIds;
-  }
-  public function setColumnPropertiesJsonSchema($columnPropertiesJsonSchema)
-  {
-    $this->columnPropertiesJsonSchema = $columnPropertiesJsonSchema;
-  }
-  public function getColumnPropertiesJsonSchema()
-  {
-    return $this->columnPropertiesJsonSchema;
   }
   /**
    * @param Google_Service_Fusiontables_Column
@@ -126,21 +115,5 @@ class Google_Service_Fusiontables_Table extends Google_Collection
   public function getTableId()
   {
     return $this->tableId;
-  }
-  public function setTablePropertiesJson($tablePropertiesJson)
-  {
-    $this->tablePropertiesJson = $tablePropertiesJson;
-  }
-  public function getTablePropertiesJson()
-  {
-    return $this->tablePropertiesJson;
-  }
-  public function setTablePropertiesJsonSchema($tablePropertiesJsonSchema)
-  {
-    $this->tablePropertiesJsonSchema = $tablePropertiesJsonSchema;
-  }
-  public function getTablePropertiesJsonSchema()
-  {
-    return $this->tablePropertiesJsonSchema;
   }
 }

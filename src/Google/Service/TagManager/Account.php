@@ -20,9 +20,7 @@ class Google_Service_TagManager_Account extends Google_Model
   public $accountId;
   public $fingerprint;
   public $name;
-  public $path;
   public $shareData;
-  public $tagManagerUrl;
 
   public function setAccountId($accountId)
   {
@@ -48,14 +46,6 @@ class Google_Service_TagManager_Account extends Google_Model
   {
     return $this->name;
   }
-  public function setPath($path)
-  {
-    $this->path = $path;
-  }
-  public function getPath()
-  {
-    return $this->path;
-  }
   public function setShareData($shareData)
   {
     $this->shareData = $shareData;
@@ -63,13 +53,5 @@ class Google_Service_TagManager_Account extends Google_Model
   public function getShareData()
   {
     return $this->shareData;
-  }
-  public function setTagManagerUrl($tagManagerUrl)
-  {
-    $this->tagManagerUrl = $tagManagerUrl;
-  }
-  public function getTagManagerUrl()
-  {
-    return $this->tagManagerUrl;
   }
 }
