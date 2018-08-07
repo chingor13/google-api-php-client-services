@@ -15,31 +15,16 @@
  * the License.
  */
 
-class Google_Service_Appengine_Deployment extends Google_Model
+class Google_Service_Appengine_Deployment extends Google_Collection
 {
-  protected $cloudBuildOptionsType = 'Google_Service_Appengine_CloudBuildOptions';
-  protected $cloudBuildOptionsDataType = '';
+  protected $collection_key = 'sourceReferences';
   protected $containerType = 'Google_Service_Appengine_ContainerInfo';
   protected $containerDataType = '';
   protected $filesType = 'Google_Service_Appengine_FileInfo';
   protected $filesDataType = 'map';
-  protected $zipType = 'Google_Service_Appengine_ZipInfo';
-  protected $zipDataType = '';
+  protected $sourceReferencesType = 'Google_Service_Appengine_SourceReference';
+  protected $sourceReferencesDataType = 'array';
 
-  /**
-   * @param Google_Service_Appengine_CloudBuildOptions
-   */
-  public function setCloudBuildOptions(Google_Service_Appengine_CloudBuildOptions $cloudBuildOptions)
-  {
-    $this->cloudBuildOptions = $cloudBuildOptions;
-  }
-  /**
-   * @return Google_Service_Appengine_CloudBuildOptions
-   */
-  public function getCloudBuildOptions()
-  {
-    return $this->cloudBuildOptions;
-  }
   /**
    * @param Google_Service_Appengine_ContainerInfo
    */
@@ -69,17 +54,17 @@ class Google_Service_Appengine_Deployment extends Google_Model
     return $this->files;
   }
   /**
-   * @param Google_Service_Appengine_ZipInfo
+   * @param Google_Service_Appengine_SourceReference
    */
-  public function setZip(Google_Service_Appengine_ZipInfo $zip)
+  public function setSourceReferences($sourceReferences)
   {
-    $this->zip = $zip;
+    $this->sourceReferences = $sourceReferences;
   }
   /**
-   * @return Google_Service_Appengine_ZipInfo
+   * @return Google_Service_Appengine_SourceReference
    */
-  public function getZip()
+  public function getSourceReferences()
   {
-    return $this->zip;
+    return $this->sourceReferences;
   }
 }

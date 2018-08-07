@@ -16,7 +16,7 @@
  */
 
 /**
- * Service definition for Speech (v1).
+ * Service definition for Speech (v1beta1).
  *
  * <p>
  * Converts audio to text by applying powerful neural network models.</p>
@@ -47,7 +47,7 @@ class Google_Service_Speech extends Google_Service
     parent::__construct($client);
     $this->rootUrl = 'https://speech.googleapis.com/';
     $this->servicePath = '';
-    $this->version = 'v1';
+    $this->version = 'v1beta1';
     $this->serviceName = 'speech';
 
     $this->operations = new Google_Service_Speech_Resource_Operations(
@@ -57,7 +57,7 @@ class Google_Service_Speech extends Google_Service
         array(
           'methods' => array(
             'get' => array(
-              'path' => 'v1/operations/{+name}',
+              'path' => 'v1beta1/operations/{+name}',
               'httpMethod' => 'GET',
               'parameters' => array(
                 'name' => array(
@@ -76,12 +76,12 @@ class Google_Service_Speech extends Google_Service
         'speech',
         array(
           'methods' => array(
-            'longrunningrecognize' => array(
-              'path' => 'v1/speech:longrunningrecognize',
+            'asyncrecognize' => array(
+              'path' => 'v1beta1/speech:asyncrecognize',
               'httpMethod' => 'POST',
               'parameters' => array(),
-            ),'recognize' => array(
-              'path' => 'v1/speech:recognize',
+            ),'syncrecognize' => array(
+              'path' => 'v1beta1/speech:syncrecognize',
               'httpMethod' => 'POST',
               'parameters' => array(),
             ),

@@ -17,30 +17,28 @@
 
 class Google_Service_TagManager_ContainerVersion extends Google_Collection
 {
-  protected $collection_key = 'zone';
+  protected $collection_key = 'variable';
   public $accountId;
-  protected $builtInVariableType = 'Google_Service_TagManager_BuiltInVariable';
-  protected $builtInVariableDataType = 'array';
   protected $containerType = 'Google_Service_TagManager_Container';
   protected $containerDataType = '';
   public $containerId;
   public $containerVersionId;
   public $deleted;
-  public $description;
   public $fingerprint;
   protected $folderType = 'Google_Service_TagManager_Folder';
   protected $folderDataType = 'array';
+  protected $macroType = 'Google_Service_TagManager_Macro';
+  protected $macroDataType = 'array';
   public $name;
-  public $path;
+  public $notes;
+  protected $ruleType = 'Google_Service_TagManager_Rule';
+  protected $ruleDataType = 'array';
   protected $tagType = 'Google_Service_TagManager_Tag';
   protected $tagDataType = 'array';
-  public $tagManagerUrl;
   protected $triggerType = 'Google_Service_TagManager_Trigger';
   protected $triggerDataType = 'array';
   protected $variableType = 'Google_Service_TagManager_Variable';
   protected $variableDataType = 'array';
-  protected $zoneType = 'Google_Service_TagManager_Zone';
-  protected $zoneDataType = 'array';
 
   public function setAccountId($accountId)
   {
@@ -49,20 +47,6 @@ class Google_Service_TagManager_ContainerVersion extends Google_Collection
   public function getAccountId()
   {
     return $this->accountId;
-  }
-  /**
-   * @param Google_Service_TagManager_BuiltInVariable
-   */
-  public function setBuiltInVariable($builtInVariable)
-  {
-    $this->builtInVariable = $builtInVariable;
-  }
-  /**
-   * @return Google_Service_TagManager_BuiltInVariable
-   */
-  public function getBuiltInVariable()
-  {
-    return $this->builtInVariable;
   }
   /**
    * @param Google_Service_TagManager_Container
@@ -102,14 +86,6 @@ class Google_Service_TagManager_ContainerVersion extends Google_Collection
   {
     return $this->deleted;
   }
-  public function setDescription($description)
-  {
-    $this->description = $description;
-  }
-  public function getDescription()
-  {
-    return $this->description;
-  }
   public function setFingerprint($fingerprint)
   {
     $this->fingerprint = $fingerprint;
@@ -132,6 +108,20 @@ class Google_Service_TagManager_ContainerVersion extends Google_Collection
   {
     return $this->folder;
   }
+  /**
+   * @param Google_Service_TagManager_Macro
+   */
+  public function setMacro($macro)
+  {
+    $this->macro = $macro;
+  }
+  /**
+   * @return Google_Service_TagManager_Macro
+   */
+  public function getMacro()
+  {
+    return $this->macro;
+  }
   public function setName($name)
   {
     $this->name = $name;
@@ -140,13 +130,27 @@ class Google_Service_TagManager_ContainerVersion extends Google_Collection
   {
     return $this->name;
   }
-  public function setPath($path)
+  public function setNotes($notes)
   {
-    $this->path = $path;
+    $this->notes = $notes;
   }
-  public function getPath()
+  public function getNotes()
   {
-    return $this->path;
+    return $this->notes;
+  }
+  /**
+   * @param Google_Service_TagManager_Rule
+   */
+  public function setRule($rule)
+  {
+    $this->rule = $rule;
+  }
+  /**
+   * @return Google_Service_TagManager_Rule
+   */
+  public function getRule()
+  {
+    return $this->rule;
   }
   /**
    * @param Google_Service_TagManager_Tag
@@ -161,14 +165,6 @@ class Google_Service_TagManager_ContainerVersion extends Google_Collection
   public function getTag()
   {
     return $this->tag;
-  }
-  public function setTagManagerUrl($tagManagerUrl)
-  {
-    $this->tagManagerUrl = $tagManagerUrl;
-  }
-  public function getTagManagerUrl()
-  {
-    return $this->tagManagerUrl;
   }
   /**
    * @param Google_Service_TagManager_Trigger
@@ -197,19 +193,5 @@ class Google_Service_TagManager_ContainerVersion extends Google_Collection
   public function getVariable()
   {
     return $this->variable;
-  }
-  /**
-   * @param Google_Service_TagManager_Zone
-   */
-  public function setZone($zone)
-  {
-    $this->zone = $zone;
-  }
-  /**
-   * @return Google_Service_TagManager_Zone
-   */
-  public function getZone()
-  {
-    return $this->zone;
   }
 }

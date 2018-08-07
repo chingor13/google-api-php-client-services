@@ -17,31 +17,22 @@
 
 class Google_Service_TagManager_ListTagsResponse extends Google_Collection
 {
-  protected $collection_key = 'tag';
-  public $nextPageToken;
-  protected $tagType = 'Google_Service_TagManager_Tag';
-  protected $tagDataType = 'array';
+  protected $collection_key = 'tags';
+  protected $tagsType = 'Google_Service_TagManager_Tag';
+  protected $tagsDataType = 'array';
 
-  public function setNextPageToken($nextPageToken)
-  {
-    $this->nextPageToken = $nextPageToken;
-  }
-  public function getNextPageToken()
-  {
-    return $this->nextPageToken;
-  }
   /**
    * @param Google_Service_TagManager_Tag
    */
-  public function setTag($tag)
+  public function setTags($tags)
   {
-    $this->tag = $tag;
+    $this->tags = $tags;
   }
   /**
    * @return Google_Service_TagManager_Tag
    */
-  public function getTag()
+  public function getTags()
   {
-    return $this->tag;
+    return $this->tags;
   }
 }

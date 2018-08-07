@@ -26,18 +26,18 @@
 class Google_Service_Fusiontables_Resource_Query extends Google_Service_Resource
 {
   /**
-   * Executes a Fusion Tables SQL statement, which can be any of - SELECT - INSERT
-   * - UPDATE - DELETE - SHOW - DESCRIBE - CREATE statement. (query.sql)
+   * Executes an SQL SELECT/INSERT/UPDATE/DELETE/SHOW/DESCRIBE/CREATE statement.
+   * (query.sql)
    *
-   * @param string $sql A Fusion Tables SQL statement, which can be any of -
-   * SELECT - INSERT - UPDATE - DELETE - SHOW - DESCRIBE - CREATE
+   * @param string $sql An SQL SELECT/SHOW/DESCRIBE/INSERT/UPDATE/DELETE/CREATE
+   * statement.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param bool hdrs Whether column names are included in the first row.
+   * @opt_param bool hdrs Should column names be included (in the first row)?.
    * Default is true.
-   * @opt_param bool typed Whether typed values are returned in the (JSON)
-   * response: numbers for numeric values and parsed geometries for KML values.
-   * Default is true.
+   * @opt_param bool typed Should typed values be returned in the (JSON) response
+   * -- numbers for numeric values and parsed geometries for KML values? Default
+   * is true.
    * @return Google_Service_Fusiontables_Sqlresponse
    */
   public function sql($sql, $optParams = array())
@@ -47,18 +47,16 @@ class Google_Service_Fusiontables_Resource_Query extends Google_Service_Resource
     return $this->call('sql', array($params), "Google_Service_Fusiontables_Sqlresponse");
   }
   /**
-   * Executes a SQL statement which can be any of - SELECT - SHOW - DESCRIBE
-   * (query.sqlGet)
+   * Executes an SQL SELECT/SHOW/DESCRIBE statement. (query.sqlGet)
    *
-   * @param string $sql A SQL statement which can be any of - SELECT - SHOW -
-   * DESCRIBE
+   * @param string $sql An SQL SELECT/SHOW/DESCRIBE statement.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param bool hdrs Whether column names are included (in the first row).
+   * @opt_param bool hdrs Should column names be included (in the first row)?.
    * Default is true.
-   * @opt_param bool typed Whether typed values are returned in the (JSON)
-   * response: numbers for numeric values and parsed geometries for KML values.
-   * Default is true.
+   * @opt_param bool typed Should typed values be returned in the (JSON) response
+   * -- numbers for numeric values and parsed geometries for KML values? Default
+   * is true.
    * @return Google_Service_Fusiontables_Sqlresponse
    */
   public function sqlGet($sql, $optParams = array())

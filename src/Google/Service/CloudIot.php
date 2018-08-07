@@ -16,7 +16,7 @@
  */
 
 /**
- * Service definition for CloudIot (v1).
+ * Service definition for CloudIot (v1beta1).
  *
  * <p>
  * Registers and manages IoT (Internet of Things) devices that connect to the
@@ -41,7 +41,6 @@ class Google_Service_CloudIot extends Google_Service
   public $projects_locations_registries;
   public $projects_locations_registries_devices;
   public $projects_locations_registries_devices_configVersions;
-  public $projects_locations_registries_devices_states;
   
   /**
    * Constructs the internal representation of the CloudIot service.
@@ -53,7 +52,7 @@ class Google_Service_CloudIot extends Google_Service
     parent::__construct($client);
     $this->rootUrl = 'https://cloudiot.googleapis.com/';
     $this->servicePath = '';
-    $this->version = 'v1';
+    $this->version = 'v1beta1';
     $this->serviceName = 'cloudiot';
 
     $this->projects_locations_registries = new Google_Service_CloudIot_Resource_ProjectsLocationsRegistries(
@@ -63,7 +62,7 @@ class Google_Service_CloudIot extends Google_Service
         array(
           'methods' => array(
             'create' => array(
-              'path' => 'v1/{+parent}/registries',
+              'path' => 'v1beta1/{+parent}/registries',
               'httpMethod' => 'POST',
               'parameters' => array(
                 'parent' => array(
@@ -73,7 +72,7 @@ class Google_Service_CloudIot extends Google_Service
                 ),
               ),
             ),'delete' => array(
-              'path' => 'v1/{+name}',
+              'path' => 'v1beta1/{+name}',
               'httpMethod' => 'DELETE',
               'parameters' => array(
                 'name' => array(
@@ -83,7 +82,7 @@ class Google_Service_CloudIot extends Google_Service
                 ),
               ),
             ),'get' => array(
-              'path' => 'v1/{+name}',
+              'path' => 'v1beta1/{+name}',
               'httpMethod' => 'GET',
               'parameters' => array(
                 'name' => array(
@@ -93,7 +92,7 @@ class Google_Service_CloudIot extends Google_Service
                 ),
               ),
             ),'getIamPolicy' => array(
-              'path' => 'v1/{+resource}:getIamPolicy',
+              'path' => 'v1beta1/{+resource}:getIamPolicy',
               'httpMethod' => 'POST',
               'parameters' => array(
                 'resource' => array(
@@ -103,7 +102,7 @@ class Google_Service_CloudIot extends Google_Service
                 ),
               ),
             ),'list' => array(
-              'path' => 'v1/{+parent}/registries',
+              'path' => 'v1beta1/{+parent}/registries',
               'httpMethod' => 'GET',
               'parameters' => array(
                 'parent' => array(
@@ -111,17 +110,17 @@ class Google_Service_CloudIot extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'pageSize' => array(
                   'location' => 'query',
                   'type' => 'integer',
                 ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
               ),
             ),'patch' => array(
-              'path' => 'v1/{+name}',
+              'path' => 'v1beta1/{+name}',
               'httpMethod' => 'PATCH',
               'parameters' => array(
                 'name' => array(
@@ -135,7 +134,7 @@ class Google_Service_CloudIot extends Google_Service
                 ),
               ),
             ),'setIamPolicy' => array(
-              'path' => 'v1/{+resource}:setIamPolicy',
+              'path' => 'v1beta1/{+resource}:setIamPolicy',
               'httpMethod' => 'POST',
               'parameters' => array(
                 'resource' => array(
@@ -145,7 +144,7 @@ class Google_Service_CloudIot extends Google_Service
                 ),
               ),
             ),'testIamPermissions' => array(
-              'path' => 'v1/{+resource}:testIamPermissions',
+              'path' => 'v1beta1/{+resource}:testIamPermissions',
               'httpMethod' => 'POST',
               'parameters' => array(
                 'resource' => array(
@@ -165,7 +164,7 @@ class Google_Service_CloudIot extends Google_Service
         array(
           'methods' => array(
             'create' => array(
-              'path' => 'v1/{+parent}/devices',
+              'path' => 'v1beta1/{+parent}/devices',
               'httpMethod' => 'POST',
               'parameters' => array(
                 'parent' => array(
@@ -175,7 +174,7 @@ class Google_Service_CloudIot extends Google_Service
                 ),
               ),
             ),'delete' => array(
-              'path' => 'v1/{+name}',
+              'path' => 'v1beta1/{+name}',
               'httpMethod' => 'DELETE',
               'parameters' => array(
                 'name' => array(
@@ -185,7 +184,7 @@ class Google_Service_CloudIot extends Google_Service
                 ),
               ),
             ),'get' => array(
-              'path' => 'v1/{+name}',
+              'path' => 'v1beta1/{+name}',
               'httpMethod' => 'GET',
               'parameters' => array(
                 'name' => array(
@@ -193,13 +192,9 @@ class Google_Service_CloudIot extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'fieldMask' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
               ),
             ),'list' => array(
-              'path' => 'v1/{+parent}/devices',
+              'path' => 'v1beta1/{+parent}/devices',
               'httpMethod' => 'GET',
               'parameters' => array(
                 'parent' => array(
@@ -231,7 +226,7 @@ class Google_Service_CloudIot extends Google_Service
                 ),
               ),
             ),'modifyCloudToDeviceConfig' => array(
-              'path' => 'v1/{+name}:modifyCloudToDeviceConfig',
+              'path' => 'v1beta1/{+name}:modifyCloudToDeviceConfig',
               'httpMethod' => 'POST',
               'parameters' => array(
                 'name' => array(
@@ -241,7 +236,7 @@ class Google_Service_CloudIot extends Google_Service
                 ),
               ),
             ),'patch' => array(
-              'path' => 'v1/{+name}',
+              'path' => 'v1beta1/{+name}',
               'httpMethod' => 'PATCH',
               'parameters' => array(
                 'name' => array(
@@ -265,7 +260,7 @@ class Google_Service_CloudIot extends Google_Service
         array(
           'methods' => array(
             'list' => array(
-              'path' => 'v1/{+name}/configVersions',
+              'path' => 'v1beta1/{+name}/configVersions',
               'httpMethod' => 'GET',
               'parameters' => array(
                 'name' => array(
@@ -274,30 +269,6 @@ class Google_Service_CloudIot extends Google_Service
                   'required' => true,
                 ),
                 'numVersions' => array(
-                  'location' => 'query',
-                  'type' => 'integer',
-                ),
-              ),
-            ),
-          )
-        )
-    );
-    $this->projects_locations_registries_devices_states = new Google_Service_CloudIot_Resource_ProjectsLocationsRegistriesDevicesStates(
-        $this,
-        $this->serviceName,
-        'states',
-        array(
-          'methods' => array(
-            'list' => array(
-              'path' => 'v1/{+name}/states',
-              'httpMethod' => 'GET',
-              'parameters' => array(
-                'name' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'numStates' => array(
                   'location' => 'query',
                   'type' => 'integer',
                 ),
