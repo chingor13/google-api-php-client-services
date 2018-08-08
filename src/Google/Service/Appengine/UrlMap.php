@@ -25,6 +25,8 @@ class Google_Service_Appengine_UrlMap extends Google_Model
   protected $scriptType = 'Google_Service_Appengine_ScriptHandler';
   protected $scriptDataType = '';
   public $securityLevel;
+  protected $staticDirectoryType = 'Google_Service_Appengine_StaticDirectoryHandler';
+  protected $staticDirectoryDataType = '';
   protected $staticFilesType = 'Google_Service_Appengine_StaticFilesHandler';
   protected $staticFilesDataType = '';
   public $urlRegex;
@@ -88,6 +90,20 @@ class Google_Service_Appengine_UrlMap extends Google_Model
   public function getSecurityLevel()
   {
     return $this->securityLevel;
+  }
+  /**
+   * @param Google_Service_Appengine_StaticDirectoryHandler
+   */
+  public function setStaticDirectory(Google_Service_Appengine_StaticDirectoryHandler $staticDirectory)
+  {
+    $this->staticDirectory = $staticDirectory;
+  }
+  /**
+   * @return Google_Service_Appengine_StaticDirectoryHandler
+   */
+  public function getStaticDirectory()
+  {
+    return $this->staticDirectory;
   }
   /**
    * @param Google_Service_Appengine_StaticFilesHandler

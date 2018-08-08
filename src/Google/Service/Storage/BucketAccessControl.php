@@ -25,8 +25,6 @@ class Google_Service_Storage_BucketAccessControl extends Google_Model
   public $etag;
   public $id;
   public $kind;
-  protected $projectTeamType = 'Google_Service_Storage_BucketAccessControlProjectTeam';
-  protected $projectTeamDataType = '';
   public $role;
   public $selfLink;
 
@@ -93,20 +91,6 @@ class Google_Service_Storage_BucketAccessControl extends Google_Model
   public function getKind()
   {
     return $this->kind;
-  }
-  /**
-   * @param Google_Service_Storage_BucketAccessControlProjectTeam
-   */
-  public function setProjectTeam(Google_Service_Storage_BucketAccessControlProjectTeam $projectTeam)
-  {
-    $this->projectTeam = $projectTeam;
-  }
-  /**
-   * @return Google_Service_Storage_BucketAccessControlProjectTeam
-   */
-  public function getProjectTeam()
-  {
-    return $this->projectTeam;
   }
   public function setRole($role)
   {

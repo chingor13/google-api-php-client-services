@@ -19,6 +19,7 @@ class Google_Service_TagManager_CreateContainerVersionRequestVersionOptions exte
 {
   public $name;
   public $notes;
+  public $quickPreview;
 
   public function setName($name)
   {
@@ -35,5 +36,13 @@ class Google_Service_TagManager_CreateContainerVersionRequestVersionOptions exte
   public function getNotes()
   {
     return $this->notes;
+  }
+  public function setQuickPreview($quickPreview)
+  {
+    $this->quickPreview = $quickPreview;
+  }
+  public function getQuickPreview()
+  {
+    return $this->quickPreview;
   }
 }

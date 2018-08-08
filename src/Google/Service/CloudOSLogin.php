@@ -16,7 +16,7 @@
  */
 
 /**
- * Service definition for CloudOSLogin (v1).
+ * Service definition for CloudOSLogin (v1alpha).
  *
  * <p>
  * Manages OS login configuration for Google account users.</p>
@@ -33,9 +33,15 @@ class Google_Service_CloudOSLogin extends Google_Service
   /** View and manage your data across Google Cloud Platform services. */
   const CLOUD_PLATFORM =
       "https://www.googleapis.com/auth/cloud-platform";
+  /** View your data across Google Cloud Platform services. */
+  const CLOUD_PLATFORM_READ_ONLY =
+      "https://www.googleapis.com/auth/cloud-platform.read-only";
   /** View and manage your Google Compute Engine resources. */
   const COMPUTE =
       "https://www.googleapis.com/auth/compute";
+  /** View your Google Compute Engine resources. */
+  const COMPUTE_READONLY =
+      "https://www.googleapis.com/auth/compute.readonly";
 
   public $users;
   public $users_projects;
@@ -51,7 +57,7 @@ class Google_Service_CloudOSLogin extends Google_Service
     parent::__construct($client);
     $this->rootUrl = 'https://oslogin.googleapis.com/';
     $this->servicePath = '';
-    $this->version = 'v1';
+    $this->version = 'v1alpha';
     $this->serviceName = 'oslogin';
 
     $this->users = new Google_Service_CloudOSLogin_Resource_Users(
@@ -61,7 +67,7 @@ class Google_Service_CloudOSLogin extends Google_Service
         array(
           'methods' => array(
             'getLoginProfile' => array(
-              'path' => 'v1/{+name}/loginProfile',
+              'path' => 'v1alpha/{+name}/loginProfile',
               'httpMethod' => 'GET',
               'parameters' => array(
                 'name' => array(
@@ -71,7 +77,7 @@ class Google_Service_CloudOSLogin extends Google_Service
                 ),
               ),
             ),'importSshPublicKey' => array(
-              'path' => 'v1/{+parent}:importSshPublicKey',
+              'path' => 'v1alpha/{+parent}:importSshPublicKey',
               'httpMethod' => 'POST',
               'parameters' => array(
                 'parent' => array(
@@ -95,13 +101,17 @@ class Google_Service_CloudOSLogin extends Google_Service
         array(
           'methods' => array(
             'delete' => array(
-              'path' => 'v1/{+name}',
+              'path' => 'v1alpha/{+name}',
               'httpMethod' => 'DELETE',
               'parameters' => array(
                 'name' => array(
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
+                ),
+                'operatingSystemType' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),
@@ -115,7 +125,7 @@ class Google_Service_CloudOSLogin extends Google_Service
         array(
           'methods' => array(
             'delete' => array(
-              'path' => 'v1/{+name}',
+              'path' => 'v1alpha/{+name}',
               'httpMethod' => 'DELETE',
               'parameters' => array(
                 'name' => array(
@@ -125,7 +135,7 @@ class Google_Service_CloudOSLogin extends Google_Service
                 ),
               ),
             ),'get' => array(
-              'path' => 'v1/{+name}',
+              'path' => 'v1alpha/{+name}',
               'httpMethod' => 'GET',
               'parameters' => array(
                 'name' => array(
@@ -135,7 +145,7 @@ class Google_Service_CloudOSLogin extends Google_Service
                 ),
               ),
             ),'patch' => array(
-              'path' => 'v1/{+name}',
+              'path' => 'v1alpha/{+name}',
               'httpMethod' => 'PATCH',
               'parameters' => array(
                 'name' => array(

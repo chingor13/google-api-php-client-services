@@ -28,14 +28,10 @@ class Google_Service_Storage_StorageObject extends Google_Collection
   public $contentLanguage;
   public $contentType;
   public $crc32c;
-  protected $customerEncryptionType = 'Google_Service_Storage_StorageObjectCustomerEncryption';
-  protected $customerEncryptionDataType = '';
   public $etag;
-  public $eventBasedHold;
   public $generation;
   public $id;
   public $kind;
-  public $kmsKeyName;
   public $md5Hash;
   public $mediaLink;
   public $metadata;
@@ -43,14 +39,10 @@ class Google_Service_Storage_StorageObject extends Google_Collection
   public $name;
   protected $ownerType = 'Google_Service_Storage_StorageObjectOwner';
   protected $ownerDataType = '';
-  public $retentionExpirationTime;
   public $selfLink;
   public $size;
   public $storageClass;
-  public $temporaryHold;
-  public $timeCreated;
   public $timeDeleted;
-  public $timeStorageClassUpdated;
   public $updated;
 
   /**
@@ -131,20 +123,6 @@ class Google_Service_Storage_StorageObject extends Google_Collection
   {
     return $this->crc32c;
   }
-  /**
-   * @param Google_Service_Storage_StorageObjectCustomerEncryption
-   */
-  public function setCustomerEncryption(Google_Service_Storage_StorageObjectCustomerEncryption $customerEncryption)
-  {
-    $this->customerEncryption = $customerEncryption;
-  }
-  /**
-   * @return Google_Service_Storage_StorageObjectCustomerEncryption
-   */
-  public function getCustomerEncryption()
-  {
-    return $this->customerEncryption;
-  }
   public function setEtag($etag)
   {
     $this->etag = $etag;
@@ -152,14 +130,6 @@ class Google_Service_Storage_StorageObject extends Google_Collection
   public function getEtag()
   {
     return $this->etag;
-  }
-  public function setEventBasedHold($eventBasedHold)
-  {
-    $this->eventBasedHold = $eventBasedHold;
-  }
-  public function getEventBasedHold()
-  {
-    return $this->eventBasedHold;
   }
   public function setGeneration($generation)
   {
@@ -184,14 +154,6 @@ class Google_Service_Storage_StorageObject extends Google_Collection
   public function getKind()
   {
     return $this->kind;
-  }
-  public function setKmsKeyName($kmsKeyName)
-  {
-    $this->kmsKeyName = $kmsKeyName;
-  }
-  public function getKmsKeyName()
-  {
-    return $this->kmsKeyName;
   }
   public function setMd5Hash($md5Hash)
   {
@@ -247,14 +209,6 @@ class Google_Service_Storage_StorageObject extends Google_Collection
   {
     return $this->owner;
   }
-  public function setRetentionExpirationTime($retentionExpirationTime)
-  {
-    $this->retentionExpirationTime = $retentionExpirationTime;
-  }
-  public function getRetentionExpirationTime()
-  {
-    return $this->retentionExpirationTime;
-  }
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -279,22 +233,6 @@ class Google_Service_Storage_StorageObject extends Google_Collection
   {
     return $this->storageClass;
   }
-  public function setTemporaryHold($temporaryHold)
-  {
-    $this->temporaryHold = $temporaryHold;
-  }
-  public function getTemporaryHold()
-  {
-    return $this->temporaryHold;
-  }
-  public function setTimeCreated($timeCreated)
-  {
-    $this->timeCreated = $timeCreated;
-  }
-  public function getTimeCreated()
-  {
-    return $this->timeCreated;
-  }
   public function setTimeDeleted($timeDeleted)
   {
     $this->timeDeleted = $timeDeleted;
@@ -302,14 +240,6 @@ class Google_Service_Storage_StorageObject extends Google_Collection
   public function getTimeDeleted()
   {
     return $this->timeDeleted;
-  }
-  public function setTimeStorageClassUpdated($timeStorageClassUpdated)
-  {
-    $this->timeStorageClassUpdated = $timeStorageClassUpdated;
-  }
-  public function getTimeStorageClassUpdated()
-  {
-    return $this->timeStorageClassUpdated;
   }
   public function setUpdated($updated)
   {

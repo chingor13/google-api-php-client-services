@@ -84,9 +84,8 @@ class Google_Service_CloudNaturalLanguage_Resource_Documents extends Google_Serv
     return $this->call('analyzeSyntax', array($params), "Google_Service_CloudNaturalLanguage_AnalyzeSyntaxResponse");
   }
   /**
-   * A convenience method that provides all the features that analyzeSentiment,
-   * analyzeEntities, and analyzeSyntax provide in one call.
-   * (documents.annotateText)
+   * A convenience method that provides all syntax, sentiment, entity, and
+   * classification features in one call. (documents.annotateText)
    *
    * @param Google_Service_CloudNaturalLanguage_AnnotateTextRequest $postBody
    * @param array $optParams Optional parameters.

@@ -17,17 +17,8 @@
 
 class Google_Service_Pubsub_PushConfig extends Google_Model
 {
-  public $attributes;
   public $pushEndpoint;
 
-  public function setAttributes($attributes)
-  {
-    $this->attributes = $attributes;
-  }
-  public function getAttributes()
-  {
-    return $this->attributes;
-  }
   public function setPushEndpoint($pushEndpoint)
   {
     $this->pushEndpoint = $pushEndpoint;
