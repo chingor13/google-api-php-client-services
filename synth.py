@@ -25,7 +25,7 @@ logging.basicConfig(level=logging.DEBUG)
 
 repository_url = "https://github.com/chingor13/discovery-artifact-manager.git"
 
-log.debug("Cloning {repository_url}.")
+log.debug(f"Cloning {repository_url}.")
 repository = git.clone(repository_url, depth=1)
 
 log.debug("Installing dependencies.")
