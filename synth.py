@@ -14,8 +14,10 @@
 
 """This script is used to synthesize generated parts of this library."""
 
+from synthtool import _tracked_paths
 import synthtool as s
 import synthtool.gcp as gcp
+import synthtool.log as log
 import synthtool.shell as shell
 import synthtool.sources.git as git
 import logging
@@ -27,12 +29,15 @@ logging.basicConfig(level=logging.DEBUG)
 repository = git.clone("https://github.com/chingor13/discovery-artifact-manager.git", depth=1)
 
 shell.run("mkdir -p output_dir".split(), cwd=repository)
-shell.run("python2 -m pip install django==1.8.12 httplib2 google-apputils python-gflags google-api-python-client".split(), cwd=repository)
+shell.run("python2 setup.py install".split(), cwd=repository / "google-api-client-generator")
 
 # run the generator for each discovery json file
 for file in glob.glob(str(repository / "discoveries/*.v*.json")):
     disco = os.path.relpath(file, repository)
-    shell.run(f"python2 googleapis/codegen/generate_library.py --output_dir=./output_dir --input=../../{disco} --language=php --language_variant=1.2.0".split(), cwd=repository / "google-api-client-generator/src")
+    command = f"python2 googleapis/codegen/generate_library.py --output_dir=../output_dir --input=../../{disco} --language=php --language_variant=1.2.0"
+    log.debug(f"Generating {disco}.")
+    print(f"Generating {disco}.")
+    shell.run(command.split(), cwd=repository / "google-api-client-generator")
 
 # copy src
 s.copy(repository / "output_dir", "src/Google/Service/")
