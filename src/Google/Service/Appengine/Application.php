@@ -25,15 +25,11 @@ class Google_Service_Appengine_Application extends Google_Collection
   public $defaultHostname;
   protected $dispatchRulesType = 'Google_Service_Appengine_UrlDispatchRule';
   protected $dispatchRulesDataType = 'array';
-  protected $featureSettingsType = 'Google_Service_Appengine_FeatureSettings';
-  protected $featureSettingsDataType = '';
-  public $gcrDomain;
   protected $iapType = 'Google_Service_Appengine_IdentityAwareProxy';
   protected $iapDataType = '';
   public $id;
-  public $locationId;
+  public $location;
   public $name;
-  public $servingStatus;
 
   public function setAuthDomain($authDomain)
   {
@@ -90,28 +86,6 @@ class Google_Service_Appengine_Application extends Google_Collection
     return $this->dispatchRules;
   }
   /**
-   * @param Google_Service_Appengine_FeatureSettings
-   */
-  public function setFeatureSettings(Google_Service_Appengine_FeatureSettings $featureSettings)
-  {
-    $this->featureSettings = $featureSettings;
-  }
-  /**
-   * @return Google_Service_Appengine_FeatureSettings
-   */
-  public function getFeatureSettings()
-  {
-    return $this->featureSettings;
-  }
-  public function setGcrDomain($gcrDomain)
-  {
-    $this->gcrDomain = $gcrDomain;
-  }
-  public function getGcrDomain()
-  {
-    return $this->gcrDomain;
-  }
-  /**
    * @param Google_Service_Appengine_IdentityAwareProxy
    */
   public function setIap(Google_Service_Appengine_IdentityAwareProxy $iap)
@@ -133,13 +107,13 @@ class Google_Service_Appengine_Application extends Google_Collection
   {
     return $this->id;
   }
-  public function setLocationId($locationId)
+  public function setLocation($location)
   {
-    $this->locationId = $locationId;
+    $this->location = $location;
   }
-  public function getLocationId()
+  public function getLocation()
   {
-    return $this->locationId;
+    return $this->location;
   }
   public function setName($name)
   {
@@ -148,13 +122,5 @@ class Google_Service_Appengine_Application extends Google_Collection
   public function getName()
   {
     return $this->name;
-  }
-  public function setServingStatus($servingStatus)
-  {
-    $this->servingStatus = $servingStatus;
-  }
-  public function getServingStatus()
-  {
-    return $this->servingStatus;
   }
 }

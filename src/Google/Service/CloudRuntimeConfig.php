@@ -16,7 +16,7 @@
  */
 
 /**
- * Service definition for CloudRuntimeConfig (v1).
+ * Service definition for CloudRuntimeConfig (v1beta1).
  *
  * <p>
  * The Runtime Configurator allows you to dynamically configure and expose
@@ -40,7 +40,10 @@ class Google_Service_CloudRuntimeConfig extends Google_Service
   const CLOUDRUNTIMECONFIG =
       "https://www.googleapis.com/auth/cloudruntimeconfig";
 
-  public $operations;
+  public $projects_configs;
+  public $projects_configs_operations;
+  public $projects_configs_variables;
+  public $projects_configs_waiters;
   
   /**
    * Constructs the internal representation of the CloudRuntimeConfig service.
@@ -52,27 +55,31 @@ class Google_Service_CloudRuntimeConfig extends Google_Service
     parent::__construct($client);
     $this->rootUrl = 'https://runtimeconfig.googleapis.com/';
     $this->servicePath = '';
-    $this->version = 'v1';
+    $this->version = 'v1beta1';
     $this->serviceName = 'runtimeconfig';
 
-    $this->operations = new Google_Service_CloudRuntimeConfig_Resource_Operations(
+    $this->projects_configs = new Google_Service_CloudRuntimeConfig_Resource_ProjectsConfigs(
         $this,
         $this->serviceName,
-        'operations',
+        'configs',
         array(
           'methods' => array(
-            'cancel' => array(
-              'path' => 'v1/{+name}:cancel',
+            'create' => array(
+              'path' => 'v1beta1/{+parent}/configs',
               'httpMethod' => 'POST',
               'parameters' => array(
-                'name' => array(
+                'parent' => array(
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
                 ),
+                'requestId' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
               ),
             ),'delete' => array(
-              'path' => 'v1/{+name}',
+              'path' => 'v1beta1/{+name}',
               'httpMethod' => 'DELETE',
               'parameters' => array(
                 'name' => array(
@@ -81,14 +88,168 @@ class Google_Service_CloudRuntimeConfig extends Google_Service
                   'required' => true,
                 ),
               ),
-            ),'list' => array(
-              'path' => 'v1/{+name}',
+            ),'get' => array(
+              'path' => 'v1beta1/{+name}',
               'httpMethod' => 'GET',
               'parameters' => array(
                 'name' => array(
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
+                ),
+              ),
+            ),'getIamPolicy' => array(
+              'path' => 'v1beta1/{+resource}:getIamPolicy',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'resource' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'list' => array(
+              'path' => 'v1beta1/{+parent}/configs',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'parent' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'pageSize' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+              ),
+            ),'setIamPolicy' => array(
+              'path' => 'v1beta1/{+resource}:setIamPolicy',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'resource' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'testIamPermissions' => array(
+              'path' => 'v1beta1/{+resource}:testIamPermissions',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'resource' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'update' => array(
+              'path' => 'v1beta1/{+name}',
+              'httpMethod' => 'PUT',
+              'parameters' => array(
+                'name' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),
+          )
+        )
+    );
+    $this->projects_configs_operations = new Google_Service_CloudRuntimeConfig_Resource_ProjectsConfigsOperations(
+        $this,
+        $this->serviceName,
+        'operations',
+        array(
+          'methods' => array(
+            'get' => array(
+              'path' => 'v1beta1/{+name}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'name' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'testIamPermissions' => array(
+              'path' => 'v1beta1/{+resource}:testIamPermissions',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'resource' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),
+          )
+        )
+    );
+    $this->projects_configs_variables = new Google_Service_CloudRuntimeConfig_Resource_ProjectsConfigsVariables(
+        $this,
+        $this->serviceName,
+        'variables',
+        array(
+          'methods' => array(
+            'create' => array(
+              'path' => 'v1beta1/{+parent}/variables',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'parent' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'requestId' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+              ),
+            ),'delete' => array(
+              'path' => 'v1beta1/{+name}',
+              'httpMethod' => 'DELETE',
+              'parameters' => array(
+                'name' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'recursive' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
+              ),
+            ),'get' => array(
+              'path' => 'v1beta1/{+name}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'name' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'list' => array(
+              'path' => 'v1beta1/{+parent}/variables',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'parent' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'returnValues' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
                 ),
                 'pageSize' => array(
                   'location' => 'query',
@@ -98,9 +259,107 @@ class Google_Service_CloudRuntimeConfig extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
+              ),
+            ),'testIamPermissions' => array(
+              'path' => 'v1beta1/{+resource}:testIamPermissions',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'resource' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'update' => array(
+              'path' => 'v1beta1/{+name}',
+              'httpMethod' => 'PUT',
+              'parameters' => array(
+                'name' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'watch' => array(
+              'path' => 'v1beta1/{+name}:watch',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'name' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),
+          )
+        )
+    );
+    $this->projects_configs_waiters = new Google_Service_CloudRuntimeConfig_Resource_ProjectsConfigsWaiters(
+        $this,
+        $this->serviceName,
+        'waiters',
+        array(
+          'methods' => array(
+            'create' => array(
+              'path' => 'v1beta1/{+parent}/waiters',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'parent' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'requestId' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+              ),
+            ),'delete' => array(
+              'path' => 'v1beta1/{+name}',
+              'httpMethod' => 'DELETE',
+              'parameters' => array(
+                'name' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'get' => array(
+              'path' => 'v1beta1/{+name}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'name' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'list' => array(
+              'path' => 'v1beta1/{+parent}/waiters',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'parent' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
                 'pageToken' => array(
                   'location' => 'query',
                   'type' => 'string',
+                ),
+                'pageSize' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+              ),
+            ),'testIamPermissions' => array(
+              'path' => 'v1beta1/{+resource}:testIamPermissions',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'resource' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
                 ),
               ),
             ),
