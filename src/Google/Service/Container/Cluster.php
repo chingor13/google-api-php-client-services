@@ -20,6 +20,8 @@ class Google_Service_Container_Cluster extends Google_Collection
   protected $collection_key = 'nodePools';
   protected $addonsConfigType = 'Google_Service_Container_AddonsConfig';
   protected $addonsConfigDataType = '';
+  protected $binaryAuthorizationType = 'Google_Service_Container_BinaryAuthorization';
+  protected $binaryAuthorizationDataType = '';
   public $clusterIpv4Cidr;
   public $createTime;
   public $currentMasterVersion;
@@ -27,6 +29,7 @@ class Google_Service_Container_Cluster extends Google_Collection
   public $currentNodeVersion;
   public $description;
   public $enableKubernetesAlpha;
+  public $enableTpu;
   public $endpoint;
   public $expireTime;
   public $initialClusterVersion;
@@ -46,9 +49,12 @@ class Google_Service_Container_Cluster extends Google_Collection
   protected $masterAuthDataType = '';
   protected $masterAuthorizedNetworksConfigType = 'Google_Service_Container_MasterAuthorizedNetworksConfig';
   protected $masterAuthorizedNetworksConfigDataType = '';
+  public $masterIpv4CidrBlock;
   public $monitoringService;
   public $name;
   public $network;
+  protected $networkConfigType = 'Google_Service_Container_NetworkConfig';
+  protected $networkConfigDataType = '';
   protected $networkPolicyType = 'Google_Service_Container_NetworkPolicy';
   protected $networkPolicyDataType = '';
   protected $nodeConfigType = 'Google_Service_Container_NodeConfig';
@@ -56,12 +62,16 @@ class Google_Service_Container_Cluster extends Google_Collection
   public $nodeIpv4CidrSize;
   protected $nodePoolsType = 'Google_Service_Container_NodePool';
   protected $nodePoolsDataType = 'array';
+  protected $podSecurityPolicyConfigType = 'Google_Service_Container_PodSecurityPolicyConfig';
+  protected $podSecurityPolicyConfigDataType = '';
+  public $privateCluster;
   public $resourceLabels;
   public $selfLink;
   public $servicesIpv4Cidr;
   public $status;
   public $statusMessage;
   public $subnetwork;
+  public $tpuIpv4CidrBlock;
   public $zone;
 
   /**
@@ -77,6 +87,20 @@ class Google_Service_Container_Cluster extends Google_Collection
   public function getAddonsConfig()
   {
     return $this->addonsConfig;
+  }
+  /**
+   * @param Google_Service_Container_BinaryAuthorization
+   */
+  public function setBinaryAuthorization(Google_Service_Container_BinaryAuthorization $binaryAuthorization)
+  {
+    $this->binaryAuthorization = $binaryAuthorization;
+  }
+  /**
+   * @return Google_Service_Container_BinaryAuthorization
+   */
+  public function getBinaryAuthorization()
+  {
+    return $this->binaryAuthorization;
   }
   public function setClusterIpv4Cidr($clusterIpv4Cidr)
   {
@@ -133,6 +157,14 @@ class Google_Service_Container_Cluster extends Google_Collection
   public function getEnableKubernetesAlpha()
   {
     return $this->enableKubernetesAlpha;
+  }
+  public function setEnableTpu($enableTpu)
+  {
+    $this->enableTpu = $enableTpu;
+  }
+  public function getEnableTpu()
+  {
+    return $this->enableTpu;
   }
   public function setEndpoint($endpoint)
   {
@@ -276,6 +308,14 @@ class Google_Service_Container_Cluster extends Google_Collection
   {
     return $this->masterAuthorizedNetworksConfig;
   }
+  public function setMasterIpv4CidrBlock($masterIpv4CidrBlock)
+  {
+    $this->masterIpv4CidrBlock = $masterIpv4CidrBlock;
+  }
+  public function getMasterIpv4CidrBlock()
+  {
+    return $this->masterIpv4CidrBlock;
+  }
   public function setMonitoringService($monitoringService)
   {
     $this->monitoringService = $monitoringService;
@@ -299,6 +339,20 @@ class Google_Service_Container_Cluster extends Google_Collection
   public function getNetwork()
   {
     return $this->network;
+  }
+  /**
+   * @param Google_Service_Container_NetworkConfig
+   */
+  public function setNetworkConfig(Google_Service_Container_NetworkConfig $networkConfig)
+  {
+    $this->networkConfig = $networkConfig;
+  }
+  /**
+   * @return Google_Service_Container_NetworkConfig
+   */
+  public function getNetworkConfig()
+  {
+    return $this->networkConfig;
   }
   /**
    * @param Google_Service_Container_NetworkPolicy
@@ -350,6 +404,28 @@ class Google_Service_Container_Cluster extends Google_Collection
   {
     return $this->nodePools;
   }
+  /**
+   * @param Google_Service_Container_PodSecurityPolicyConfig
+   */
+  public function setPodSecurityPolicyConfig(Google_Service_Container_PodSecurityPolicyConfig $podSecurityPolicyConfig)
+  {
+    $this->podSecurityPolicyConfig = $podSecurityPolicyConfig;
+  }
+  /**
+   * @return Google_Service_Container_PodSecurityPolicyConfig
+   */
+  public function getPodSecurityPolicyConfig()
+  {
+    return $this->podSecurityPolicyConfig;
+  }
+  public function setPrivateCluster($privateCluster)
+  {
+    $this->privateCluster = $privateCluster;
+  }
+  public function getPrivateCluster()
+  {
+    return $this->privateCluster;
+  }
   public function setResourceLabels($resourceLabels)
   {
     $this->resourceLabels = $resourceLabels;
@@ -397,6 +473,14 @@ class Google_Service_Container_Cluster extends Google_Collection
   public function getSubnetwork()
   {
     return $this->subnetwork;
+  }
+  public function setTpuIpv4CidrBlock($tpuIpv4CidrBlock)
+  {
+    $this->tpuIpv4CidrBlock = $tpuIpv4CidrBlock;
+  }
+  public function getTpuIpv4CidrBlock()
+  {
+    return $this->tpuIpv4CidrBlock;
   }
   public function setZone($zone)
   {

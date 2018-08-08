@@ -63,10 +63,6 @@ class Google_Service_CloudIot_Resource_ProjectsLocationsRegistriesDevices extend
    * `projects/p0/locations/us-central1/registries/registry0/devices/device0` or
    * `projects/p0/locations/us-central1/registries/registry0/devices/{num_id}`.
    * @param array $optParams Optional parameters.
-   *
-   * @opt_param string fieldMask The fields of the `Device` resource to be
-   * returned in the response. If the field mask is unset or empty, all fields are
-   * returned.
    * @return Google_Service_CloudIot_Device
    */
   public function get($name, $optParams = array())
@@ -108,8 +104,8 @@ class Google_Service_CloudIot_Resource_ProjectsLocationsRegistriesDevices extend
   }
   /**
    * Modifies the configuration for the device, which is eventually sent from the
-   * Cloud IoT Core servers. Returns the modified configuration version and its
-   * metadata. (devices.modifyCloudToDeviceConfig)
+   * Cloud IoT servers. Returns the modified configuration version and its meta-
+   * data. (devices.modifyCloudToDeviceConfig)
    *
    * @param string $name The name of the device. For example,
    * `projects/p0/locations/us-central1/registries/registry0/devices/device0` or
@@ -138,7 +134,7 @@ class Google_Service_CloudIot_Resource_ProjectsLocationsRegistriesDevices extend
    * @opt_param string updateMask Only updates the `device` fields indicated by
    * this mask. The field mask must not be empty, and it must not contain fields
    * that are immutable or only set by the server. Mutable top-level fields:
-   * `credentials`, `blocked`, and `metadata`
+   * `credentials` and `enabled_state`
    * @return Google_Service_CloudIot_Device
    */
   public function patch($name, Google_Service_CloudIot_Device $postBody, $optParams = array())

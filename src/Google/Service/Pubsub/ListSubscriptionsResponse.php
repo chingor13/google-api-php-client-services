@@ -17,10 +17,10 @@
 
 class Google_Service_Pubsub_ListSubscriptionsResponse extends Google_Collection
 {
-  protected $collection_key = 'subscriptions';
+  protected $collection_key = 'subscription';
   public $nextPageToken;
-  protected $subscriptionsType = 'Google_Service_Pubsub_Subscription';
-  protected $subscriptionsDataType = 'array';
+  protected $subscriptionType = 'Google_Service_Pubsub_Subscription';
+  protected $subscriptionDataType = 'array';
 
   public function setNextPageToken($nextPageToken)
   {
@@ -33,15 +33,15 @@ class Google_Service_Pubsub_ListSubscriptionsResponse extends Google_Collection
   /**
    * @param Google_Service_Pubsub_Subscription
    */
-  public function setSubscriptions($subscriptions)
+  public function setSubscription($subscription)
   {
-    $this->subscriptions = $subscriptions;
+    $this->subscription = $subscription;
   }
   /**
    * @return Google_Service_Pubsub_Subscription
    */
-  public function getSubscriptions()
+  public function getSubscription()
   {
-    return $this->subscriptions;
+    return $this->subscription;
   }
 }

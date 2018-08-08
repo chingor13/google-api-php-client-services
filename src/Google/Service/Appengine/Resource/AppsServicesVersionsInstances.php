@@ -51,8 +51,8 @@ class Google_Service_Appengine_Resource_AppsServicesVersionsInstances extends Go
   /**
    * Stops a running instance. (instances.delete)
    *
-   * @param string $appsId Part of `name`. Name of the resource requested.
-   * Example: apps/myapp/services/default/versions/v1/instances/instance-1.
+   * @param string $appsId Part of `name`. Name of the resource requested. For
+   * example: "apps/myapp/services/default/versions/v1/instances/instance-1".
    * @param string $servicesId Part of `name`. See documentation of `appsId`.
    * @param string $versionsId Part of `name`. See documentation of `appsId`.
    * @param string $instancesId Part of `name`. See documentation of `appsId`.
@@ -88,10 +88,10 @@ class Google_Service_Appengine_Resource_AppsServicesVersionsInstances extends Go
    * oring/api/ref_v3/rest/v3/projects.timeSeries/list).
    * (instances.listAppsServicesVersionsInstances)
    *
-   * @param string $appsId Part of `parent`. Name of the parent Version resource.
+   * @param string $appsId Part of `name`. Name of the resource requested.
    * Example: apps/myapp/services/default/versions/v1.
-   * @param string $servicesId Part of `parent`. See documentation of `appsId`.
-   * @param string $versionsId Part of `parent`. See documentation of `appsId`.
+   * @param string $servicesId Part of `name`. See documentation of `appsId`.
+   * @param string $versionsId Part of `name`. See documentation of `appsId`.
    * @param array $optParams Optional parameters.
    *
    * @opt_param string pageToken Continuation token for fetching the next page of

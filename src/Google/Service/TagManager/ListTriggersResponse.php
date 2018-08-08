@@ -17,31 +17,22 @@
 
 class Google_Service_TagManager_ListTriggersResponse extends Google_Collection
 {
-  protected $collection_key = 'trigger';
-  public $nextPageToken;
-  protected $triggerType = 'Google_Service_TagManager_Trigger';
-  protected $triggerDataType = 'array';
+  protected $collection_key = 'triggers';
+  protected $triggersType = 'Google_Service_TagManager_Trigger';
+  protected $triggersDataType = 'array';
 
-  public function setNextPageToken($nextPageToken)
-  {
-    $this->nextPageToken = $nextPageToken;
-  }
-  public function getNextPageToken()
-  {
-    return $this->nextPageToken;
-  }
   /**
    * @param Google_Service_TagManager_Trigger
    */
-  public function setTrigger($trigger)
+  public function setTriggers($triggers)
   {
-    $this->trigger = $trigger;
+    $this->triggers = $triggers;
   }
   /**
    * @return Google_Service_TagManager_Trigger
    */
-  public function getTrigger()
+  public function getTriggers()
   {
-    return $this->trigger;
+    return $this->triggers;
   }
 }

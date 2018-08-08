@@ -26,7 +26,7 @@
 class Google_Service_Fusiontables_Resource_Column extends Google_Service_Resource
 {
   /**
-   * Deletes the specified column. (column.delete)
+   * Deletes the column. (column.delete)
    *
    * @param string $tableId Table from which the column is being deleted.
    * @param string $columnId Name or identifier for the column being deleted.
@@ -39,7 +39,7 @@ class Google_Service_Fusiontables_Resource_Column extends Google_Service_Resourc
     return $this->call('delete', array($params));
   }
   /**
-   * Retrieves a specific column by its ID. (column.get)
+   * Retrieves a specific column by its id. (column.get)
    *
    * @param string $tableId Table to which the column belongs.
    * @param string $columnId Name or identifier for the column that is being
@@ -73,10 +73,10 @@ class Google_Service_Fusiontables_Resource_Column extends Google_Service_Resourc
    * @param string $tableId Table whose columns are being listed.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string maxResults Maximum number of columns to return. Default is
-   * 5.
+   * @opt_param string maxResults Maximum number of columns to return. Optional.
+   * Default is 5.
    * @opt_param string pageToken Continuation token specifying which result page
-   * to return.
+   * to return. Optional.
    * @return Google_Service_Fusiontables_ColumnList
    */
   public function listColumn($tableId, $optParams = array())
