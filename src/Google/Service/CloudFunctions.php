@@ -16,7 +16,7 @@
  */
 
 /**
- * Service definition for CloudFunctions (v1).
+ * Service definition for CloudFunctions (v1beta2).
  *
  * <p>
  * Manages lightweight user-provided functions executed in response to events.</p>
@@ -48,7 +48,7 @@ class Google_Service_CloudFunctions extends Google_Service
     parent::__construct($client);
     $this->rootUrl = 'https://cloudfunctions.googleapis.com/';
     $this->servicePath = '';
-    $this->version = 'v1';
+    $this->version = 'v1beta2';
     $this->serviceName = 'cloudfunctions';
 
     $this->operations = new Google_Service_CloudFunctions_Resource_Operations(
@@ -58,7 +58,7 @@ class Google_Service_CloudFunctions extends Google_Service
         array(
           'methods' => array(
             'get' => array(
-              'path' => 'v1/{+name}',
+              'path' => 'v1beta2/{+name}',
               'httpMethod' => 'GET',
               'parameters' => array(
                 'name' => array(
@@ -68,13 +68,9 @@ class Google_Service_CloudFunctions extends Google_Service
                 ),
               ),
             ),'list' => array(
-              'path' => 'v1/operations',
+              'path' => 'v1beta2/operations',
               'httpMethod' => 'GET',
               'parameters' => array(
-                'filter' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'name' => array(
                   'location' => 'query',
                   'type' => 'string',
@@ -86,6 +82,10 @@ class Google_Service_CloudFunctions extends Google_Service
                 'pageSize' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'filter' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),
@@ -99,7 +99,7 @@ class Google_Service_CloudFunctions extends Google_Service
         array(
           'methods' => array(
             'list' => array(
-              'path' => 'v1/{+name}/locations',
+              'path' => 'v1beta2/{+name}/locations',
               'httpMethod' => 'GET',
               'parameters' => array(
                 'name' => array(
@@ -107,15 +107,15 @@ class Google_Service_CloudFunctions extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
                 'pageSize' => array(
                   'location' => 'query',
                   'type' => 'integer',
                 ),
                 'filter' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'pageToken' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -131,7 +131,7 @@ class Google_Service_CloudFunctions extends Google_Service
         array(
           'methods' => array(
             'call' => array(
-              'path' => 'v1/{+name}:call',
+              'path' => 'v1beta2/{+name}:call',
               'httpMethod' => 'POST',
               'parameters' => array(
                 'name' => array(
@@ -141,7 +141,7 @@ class Google_Service_CloudFunctions extends Google_Service
                 ),
               ),
             ),'create' => array(
-              'path' => 'v1/{+location}/functions',
+              'path' => 'v1beta2/{+location}/functions',
               'httpMethod' => 'POST',
               'parameters' => array(
                 'location' => array(
@@ -151,7 +151,7 @@ class Google_Service_CloudFunctions extends Google_Service
                 ),
               ),
             ),'delete' => array(
-              'path' => 'v1/{+name}',
+              'path' => 'v1beta2/{+name}',
               'httpMethod' => 'DELETE',
               'parameters' => array(
                 'name' => array(
@@ -161,7 +161,7 @@ class Google_Service_CloudFunctions extends Google_Service
                 ),
               ),
             ),'generateDownloadUrl' => array(
-              'path' => 'v1/{+name}:generateDownloadUrl',
+              'path' => 'v1beta2/{+name}:generateDownloadUrl',
               'httpMethod' => 'POST',
               'parameters' => array(
                 'name' => array(
@@ -171,7 +171,7 @@ class Google_Service_CloudFunctions extends Google_Service
                 ),
               ),
             ),'generateUploadUrl' => array(
-              'path' => 'v1/{+parent}/functions:generateUploadUrl',
+              'path' => 'v1beta2/{+parent}/functions:generateUploadUrl',
               'httpMethod' => 'POST',
               'parameters' => array(
                 'parent' => array(
@@ -181,7 +181,7 @@ class Google_Service_CloudFunctions extends Google_Service
                 ),
               ),
             ),'get' => array(
-              'path' => 'v1/{+name}',
+              'path' => 'v1beta2/{+name}',
               'httpMethod' => 'GET',
               'parameters' => array(
                 'name' => array(
@@ -191,10 +191,10 @@ class Google_Service_CloudFunctions extends Google_Service
                 ),
               ),
             ),'list' => array(
-              'path' => 'v1/{+parent}/functions',
+              'path' => 'v1beta2/{+location}/functions',
               'httpMethod' => 'GET',
               'parameters' => array(
-                'parent' => array(
+                'location' => array(
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
@@ -208,18 +208,14 @@ class Google_Service_CloudFunctions extends Google_Service
                   'type' => 'integer',
                 ),
               ),
-            ),'patch' => array(
-              'path' => 'v1/{+name}',
-              'httpMethod' => 'PATCH',
+            ),'update' => array(
+              'path' => 'v1beta2/{+name}',
+              'httpMethod' => 'PUT',
               'parameters' => array(
                 'name' => array(
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
-                ),
-                'updateMask' => array(
-                  'location' => 'query',
-                  'type' => 'string',
                 ),
               ),
             ),

@@ -94,7 +94,7 @@ class Google_Service_CloudFunctions_Resource_ProjectsLocationsFunctions extends 
   /**
    * Returns a signed URL for uploading a function source code. For more
    * information about the signed URL usage see:
-   * https://cloud.google.com/storage/docs/access-control/signed-urls. Once the
+   * https://cloud.google.com/storage/docs/access-control/signed-urls Once the
    * function source code upload is complete, the used signed URL should be
    * provided in CreateFunction or UpdateFunction request as a reference to the
    * function source code.
@@ -142,9 +142,9 @@ class Google_Service_CloudFunctions_Resource_ProjectsLocationsFunctions extends 
    * Returns a list of functions that belong to the requested project.
    * (functions.listProjectsLocationsFunctions)
    *
-   * @param string $parent The project and location from which the function should
-   * be listed, specified in the format `projects/locations` If you want to list
-   * functions in all locations, use "-" in place of a location.
+   * @param string $location The project and location from which the function
+   * should be listed, specified in the format `projects/locations` If you want to
+   * list functions in all locations, use "-" in place of a location.
    * @param array $optParams Optional parameters.
    *
    * @opt_param string pageToken The value returned by the last
@@ -154,28 +154,24 @@ class Google_Service_CloudFunctions_Resource_ProjectsLocationsFunctions extends 
    * @opt_param int pageSize Maximum number of functions to return per call.
    * @return Google_Service_CloudFunctions_ListFunctionsResponse
    */
-  public function listProjectsLocationsFunctions($parent, $optParams = array())
+  public function listProjectsLocationsFunctions($location, $optParams = array())
   {
-    $params = array('parent' => $parent);
+    $params = array('location' => $location);
     $params = array_merge($params, $optParams);
     return $this->call('list', array($params), "Google_Service_CloudFunctions_ListFunctionsResponse");
   }
   /**
-   * Updates existing function. (functions.patch)
+   * Updates existing function. (functions.update)
    *
-   * @param string $name A user-defined name of the function. Function names must
-   * be unique globally and match pattern `projects/locations/functions`
+   * @param string $name The name of the function to be updated.
    * @param Google_Service_CloudFunctions_CloudFunction $postBody
    * @param array $optParams Optional parameters.
-   *
-   * @opt_param string updateMask Required list of fields to be updated in this
-   * request.
    * @return Google_Service_CloudFunctions_Operation
    */
-  public function patch($name, Google_Service_CloudFunctions_CloudFunction $postBody, $optParams = array())
+  public function update($name, Google_Service_CloudFunctions_CloudFunction $postBody, $optParams = array())
   {
     $params = array('name' => $name, 'postBody' => $postBody);
     $params = array_merge($params, $optParams);
-    return $this->call('patch', array($params), "Google_Service_CloudFunctions_Operation");
+    return $this->call('update', array($params), "Google_Service_CloudFunctions_Operation");
   }
 }

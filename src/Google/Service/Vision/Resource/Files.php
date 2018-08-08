@@ -33,11 +33,11 @@ class Google_Service_Vision_Resource_Files extends Google_Service_Resource
    * `OperationMetadata` (metadata). `Operation.response` contains
    * `AsyncBatchAnnotateFilesResponse` (results). (files.asyncBatchAnnotate)
    *
-   * @param Google_Service_Vision_AsyncBatchAnnotateFilesRequest $postBody
+   * @param Google_Service_Vision_GoogleCloudVisionV1p2beta1AsyncBatchAnnotateFilesRequest $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Vision_Operation
    */
-  public function asyncBatchAnnotate(Google_Service_Vision_AsyncBatchAnnotateFilesRequest $postBody, $optParams = array())
+  public function asyncBatchAnnotate(Google_Service_Vision_GoogleCloudVisionV1p2beta1AsyncBatchAnnotateFilesRequest $postBody, $optParams = array())
   {
     $params = array('postBody' => $postBody);
     $params = array_merge($params, $optParams);

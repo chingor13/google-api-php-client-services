@@ -33,13 +33,13 @@ class Google_Service_Container_Resource_ProjectsLocations extends Google_Service
    * get Specified in the format 'projects/locations'.
    * @param array $optParams Optional parameters.
    *
+   * @opt_param string zone Deprecated. The name of the Google Compute Engine
+   * [zone](/compute/docs/zones#available) to return operations for. This field
+   * has been deprecated and replaced by the name field.
    * @opt_param string projectId Deprecated. The Google Developers Console
    * [project ID or project
    * number](https://support.google.com/cloud/answer/6158840). This field has been
    * deprecated and replaced by the name field.
-   * @opt_param string zone Deprecated. The name of the Google Compute Engine
-   * [zone](/compute/docs/zones#available) to return operations for. This field
-   * has been deprecated and replaced by the name field.
    * @return Google_Service_Container_ServerConfig
    */
   public function getServerConfig($name, $optParams = array())
@@ -47,5 +47,19 @@ class Google_Service_Container_Resource_ProjectsLocations extends Google_Service
     $params = array('name' => $name);
     $params = array_merge($params, $optParams);
     return $this->call('getServerConfig', array($params), "Google_Service_Container_ServerConfig");
+  }
+  /**
+   * (locations.listProjectsLocations)
+   *
+   * @param string $parent Contains the name of the resource requested. Specified
+   * in the format 'projects'.
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Container_ListLocationsResponse
+   */
+  public function listProjectsLocations($parent, $optParams = array())
+  {
+    $params = array('parent' => $parent);
+    $params = array_merge($params, $optParams);
+    return $this->call('list', array($params), "Google_Service_Container_ListLocationsResponse");
   }
 }

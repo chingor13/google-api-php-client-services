@@ -1,0 +1,79 @@
+<?php
+/*
+ * Copyright 2014 Google Inc.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not
+ * use this file except in compliance with the License. You may obtain a copy of
+ * the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations under
+ * the License.
+ */
+
+class Google_Service_DeploymentManagerV2Beta_Options extends Google_Collection
+{
+  protected $collection_key = 'inputMappings';
+  protected $asyncOptionsType = 'Google_Service_DeploymentManagerV2Beta_AsyncOptions';
+  protected $asyncOptionsDataType = 'array';
+  protected $inputMappingsType = 'Google_Service_DeploymentManagerV2Beta_InputMapping';
+  protected $inputMappingsDataType = 'array';
+  protected $validationOptionsType = 'Google_Service_DeploymentManagerV2Beta_ValidationOptions';
+  protected $validationOptionsDataType = '';
+  public $virtualProperties;
+
+  /**
+   * @param Google_Service_DeploymentManagerV2Beta_AsyncOptions
+   */
+  public function setAsyncOptions($asyncOptions)
+  {
+    $this->asyncOptions = $asyncOptions;
+  }
+  /**
+   * @return Google_Service_DeploymentManagerV2Beta_AsyncOptions
+   */
+  public function getAsyncOptions()
+  {
+    return $this->asyncOptions;
+  }
+  /**
+   * @param Google_Service_DeploymentManagerV2Beta_InputMapping
+   */
+  public function setInputMappings($inputMappings)
+  {
+    $this->inputMappings = $inputMappings;
+  }
+  /**
+   * @return Google_Service_DeploymentManagerV2Beta_InputMapping
+   */
+  public function getInputMappings()
+  {
+    return $this->inputMappings;
+  }
+  /**
+   * @param Google_Service_DeploymentManagerV2Beta_ValidationOptions
+   */
+  public function setValidationOptions(Google_Service_DeploymentManagerV2Beta_ValidationOptions $validationOptions)
+  {
+    $this->validationOptions = $validationOptions;
+  }
+  /**
+   * @return Google_Service_DeploymentManagerV2Beta_ValidationOptions
+   */
+  public function getValidationOptions()
+  {
+    return $this->validationOptions;
+  }
+  public function setVirtualProperties($virtualProperties)
+  {
+    $this->virtualProperties = $virtualProperties;
+  }
+  public function getVirtualProperties()
+  {
+    return $this->virtualProperties;
+  }
+}

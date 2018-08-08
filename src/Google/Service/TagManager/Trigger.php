@@ -44,14 +44,11 @@ class Google_Service_TagManager_Trigger extends Google_Collection
   protected $maxTimerLengthSecondsType = 'Google_Service_TagManager_Parameter';
   protected $maxTimerLengthSecondsDataType = '';
   public $name;
-  public $notes;
   protected $parameterType = 'Google_Service_TagManager_Parameter';
   protected $parameterDataType = 'array';
   public $parentFolderId;
-  public $path;
   protected $selectorType = 'Google_Service_TagManager_Parameter';
   protected $selectorDataType = '';
-  public $tagManagerUrl;
   protected $totalTimeMinMillisecondsType = 'Google_Service_TagManager_Parameter';
   protected $totalTimeMinMillisecondsDataType = '';
   public $triggerId;
@@ -70,7 +67,6 @@ class Google_Service_TagManager_Trigger extends Google_Collection
   protected $waitForTagsDataType = '';
   protected $waitForTagsTimeoutType = 'Google_Service_TagManager_Parameter';
   protected $waitForTagsTimeoutDataType = '';
-  public $workspaceId;
 
   public function setAccountId($accountId)
   {
@@ -258,14 +254,6 @@ class Google_Service_TagManager_Trigger extends Google_Collection
   {
     return $this->name;
   }
-  public function setNotes($notes)
-  {
-    $this->notes = $notes;
-  }
-  public function getNotes()
-  {
-    return $this->notes;
-  }
   /**
    * @param Google_Service_TagManager_Parameter
    */
@@ -288,14 +276,6 @@ class Google_Service_TagManager_Trigger extends Google_Collection
   {
     return $this->parentFolderId;
   }
-  public function setPath($path)
-  {
-    $this->path = $path;
-  }
-  public function getPath()
-  {
-    return $this->path;
-  }
   /**
    * @param Google_Service_TagManager_Parameter
    */
@@ -309,14 +289,6 @@ class Google_Service_TagManager_Trigger extends Google_Collection
   public function getSelector()
   {
     return $this->selector;
-  }
-  public function setTagManagerUrl($tagManagerUrl)
-  {
-    $this->tagManagerUrl = $tagManagerUrl;
-  }
-  public function getTagManagerUrl()
-  {
-    return $this->tagManagerUrl;
   }
   /**
    * @param Google_Service_TagManager_Parameter
@@ -445,13 +417,5 @@ class Google_Service_TagManager_Trigger extends Google_Collection
   public function getWaitForTagsTimeout()
   {
     return $this->waitForTagsTimeout;
-  }
-  public function setWorkspaceId($workspaceId)
-  {
-    $this->workspaceId = $workspaceId;
-  }
-  public function getWorkspaceId()
-  {
-    return $this->workspaceId;
   }
 }

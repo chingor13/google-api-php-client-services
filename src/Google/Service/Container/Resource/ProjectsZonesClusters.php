@@ -129,7 +129,7 @@ class Google_Service_Container_Resource_ProjectsZonesClusters extends Google_Ser
     return $this->call('delete', array($params), "Google_Service_Container_Operation");
   }
   /**
-   * Gets the details of a specific cluster. (clusters.get)
+   * Gets the details for a specific cluster. (clusters.get)
    *
    * @param string $projectId Deprecated. The Google Developers Console [project
    * ID or project number](https://support.google.com/cloud/answer/6158840). This
@@ -324,7 +324,8 @@ class Google_Service_Container_Resource_ProjectsZonesClusters extends Google_Ser
   /**
    * Used to set master auth materials. Currently supports :- Changing the admin
    * password for a specific cluster. This can be either via password generation
-   * or explicitly set the password. (clusters.setMasterAuth)
+   * or explicitly set. Modify basic_auth.csv and reset the K8S API server.
+   * (clusters.setMasterAuth)
    *
    * @param string $projectId Deprecated. The Google Developers Console [project
    * ID or project number](https://support.google.com/cloud/answer/6158840). This
@@ -389,7 +390,7 @@ class Google_Service_Container_Resource_ProjectsZonesClusters extends Google_Ser
     return $this->call('startIpRotation', array($params), "Google_Service_Container_Operation");
   }
   /**
-   * Updates the settings of a specific cluster. (clusters.update)
+   * Updates the settings for a specific cluster. (clusters.update)
    *
    * @param string $projectId Deprecated. The Google Developers Console [project
    * ID or project number](https://support.google.com/cloud/answer/6158840). This

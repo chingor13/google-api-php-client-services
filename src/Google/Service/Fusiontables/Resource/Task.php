@@ -26,11 +26,10 @@
 class Google_Service_Fusiontables_Resource_Task extends Google_Service_Resource
 {
   /**
-   * Deletes a specific task by its ID, unless that task has already started
-   * running. (task.delete)
+   * Deletes the task, unless already started. (task.delete)
    *
    * @param string $tableId Table from which the task is being deleted.
-   * @param string $taskId The identifier of the task to delete.
+   * @param string $taskId
    * @param array $optParams Optional parameters.
    */
   public function delete($tableId, $taskId, $optParams = array())
@@ -40,10 +39,10 @@ class Google_Service_Fusiontables_Resource_Task extends Google_Service_Resource
     return $this->call('delete', array($params));
   }
   /**
-   * Retrieves a specific task by its ID. (task.get)
+   * Retrieves a specific task by its id. (task.get)
    *
    * @param string $tableId Table to which the task belongs.
-   * @param string $taskId The identifier of the task to get.
+   * @param string $taskId
    * @param array $optParams Optional parameters.
    * @return Google_Service_Fusiontables_Task
    */
@@ -59,11 +58,10 @@ class Google_Service_Fusiontables_Resource_Task extends Google_Service_Resource
    * @param string $tableId Table whose tasks are being listed.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string maxResults Maximum number of tasks to return. Default is 5.
-   * @opt_param string pageToken Continuation token specifying which result page
-   * to return.
-   * @opt_param string startIndex Index of the first result returned in the
-   * current page.
+   * @opt_param string maxResults Maximum number of columns to return. Optional.
+   * Default is 5.
+   * @opt_param string pageToken
+   * @opt_param string startIndex
    * @return Google_Service_Fusiontables_TaskList
    */
   public function listTask($tableId, $optParams = array())

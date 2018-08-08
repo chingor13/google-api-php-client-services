@@ -58,13 +58,13 @@ class Google_Service_Appengine_Resource_AppsServices extends Google_Service_Reso
   /**
    * Lists all the services in the application. (services.listAppsServices)
    *
-   * @param string $appsId Part of `parent`. Name of the parent Application
-   * resource. Example: apps/myapp.
+   * @param string $appsId Part of `name`. Name of the resource requested.
+   * Example: apps/myapp.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param int pageSize Maximum results to return per page.
    * @opt_param string pageToken Continuation token for fetching the next page of
    * results.
+   * @opt_param int pageSize Maximum results to return per page.
    * @return Google_Service_Appengine_ListServicesResponse
    */
   public function listAppsServices($appsId, $optParams = array())
@@ -87,16 +87,16 @@ class Google_Service_Appengine_Resource_AppsServices extends Google_Service_Reso
    * immediately. For gradual traffic migration, the target versions must be
    * located within instances that are configured for both warmup requests
    * (https://cloud.google.com/appengine/docs/admin-
-   * api/reference/rest/v1/apps.services.versions#inboundservicetype) and
+   * api/reference/rest/v1beta5/apps.services.versions#inboundservicetype) and
    * automatic scaling (https://cloud.google.com/appengine/docs/admin-
-   * api/reference/rest/v1/apps.services.versions#automaticscaling). You must
+   * api/reference/rest/v1beta5/apps.services.versions#automaticscaling). You must
    * specify the shardBy (https://cloud.google.com/appengine/docs/admin-
-   * api/reference/rest/v1/apps.services#shardby) field in the Service resource.
-   * Gradual traffic migration is not supported in the App Engine flexible
-   * environment. For examples, see Migrating and Splitting Traffic
+   * api/reference/rest/v1beta5/apps.services#shardby) field in the Service
+   * resource. Gradual traffic migration is not supported in the App Engine
+   * flexible environment. For examples, see Migrating and Splitting Traffic
    * (https://cloud.google.com/appengine/docs/admin-api/migrating-splitting-
    * traffic).
-   * @opt_param string updateMask Standard field mask for the set of fields to be
+   * @opt_param string mask Standard field mask for the set of fields to be
    * updated.
    * @return Google_Service_Appengine_Operation
    */
