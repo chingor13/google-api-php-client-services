@@ -16,7 +16,6 @@
 
 from synthtool import _tracked_paths
 import synthtool as s
-import synthtool.gcp as gcp
 import synthtool.log as log
 import synthtool.shell as shell
 import synthtool.sources.git as git
@@ -26,8 +25,12 @@ import glob
 
 logging.basicConfig(level=logging.DEBUG)
 
-repository = git.clone("https://github.com/chingor13/discovery-artifact-manager.git", depth=1)
+repository_url = "https://github.com/chingor13/discovery-artifact-manager.git"
 
+log.debug("Cloning {repository_url}.")
+repository = git.clone(repository_url, depth=1)
+
+log.debug("Installing dependencies.")
 shell.run("mkdir -p output_dir".split(), cwd=repository)
 shell.run("python2 setup.py install".split(), cwd=repository / "google-api-client-generator")
 
@@ -37,6 +40,8 @@ for file in glob.glob(str(repository / "discoveries/*.v*.json")):
     command = f"python2 src/googleapis/codegen/generate_library.py --output_dir=../output_dir --input=../{disco} --language=php --language_variant=1.2.0"
     log.debug(f"Generating {disco}.")
     shell.run(command.split(), cwd=repository / "google-api-client-generator")
+
+_tracked_paths.add(repository)
 
 # copy src
 s.copy(repository / "output_dir", "src/Google/Service/")
