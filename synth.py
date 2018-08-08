@@ -34,9 +34,8 @@ shell.run("python2 setup.py install".split(), cwd=repository / "google-api-clien
 # run the generator for each discovery json file
 for file in glob.glob(str(repository / "discoveries/*.v*.json")):
     disco = os.path.relpath(file, repository)
-    command = f"python2 googleapis/codegen/generate_library.py --output_dir=../output_dir --input=../../{disco} --language=php --language_variant=1.2.0"
+    command = f"python2 src/googleapis/codegen/generate_library.py --output_dir=../output_dir --input=../{disco} --language=php --language_variant=1.2.0"
     log.debug(f"Generating {disco}.")
-    print(f"Generating {disco}.")
     shell.run(command.split(), cwd=repository / "google-api-client-generator")
 
 # copy src
