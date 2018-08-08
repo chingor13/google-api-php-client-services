@@ -16,33 +16,23 @@
 
 import synthtool as s
 import synthtool.gcp as gcp
+import synthtool.shell as shell
+import synthtool.sources.git as git
 import logging
 import os
 import glob
 
 logging.basicConfig(level=logging.DEBUG)
 
-repository = gcp.RepositoryGenerator(
-    "https://github.com/chingor13/discovery-artifact-manager.git"
-)
+repository = git.clone("https://github.com/chingor13/discovery-artifact-manager.git", depth=1)
 
-commands = [
-    "mkdir -p output_dir",
-    "python2 -m pip install django==1.8.12 httplib2 google-apputils python-gflags google-api-python-client",
-]
+shell.run("mkdir -p output_dir".split(), cwd=repository)
+shell.run("python2 -m pip install django==1.8.12 httplib2 google-apputils python-gflags google-api-python-client".split(), cwd=repository)
 
 # run the generator for each discovery json file
-for file in glob.glob(str(repository.repository / "discoveries/*.v*.json")):
-    disco = os.path.relpath(file, repository.repository)
-    commands.append(f"python2 google-api-client-generator/src/googleapis/codegen/generate_library.py --output_dir=./output_dir --input={disco} --language=php --language_variant=1.2.0")
-
-# need to set the PYTHONPATH for finding local source
-repository_path = f"{repository.repository}/google-api-client-generator/src"
-python_path = os.getenv("PYTHONPATH")
-environment = os.environ
-environment["PYTHONPATH"] = repository_path if python_path is None else f"{python_path}:{repository_path}"
-
-library = repository.repository_library(commands, env=environment)
+for file in glob.glob(str(repository / "discoveries/*.v*.json")):
+    disco = os.path.relpath(file, repository)
+    shell.run(f"python2 googleapis/codegen/generate_library.py --output_dir=./output_dir --input=../../{disco} --language=php --language_variant=1.2.0".split(), cwd=repository / "google-api-client-generator/src")
 
 # copy src
-s.copy(library / "output_dir", "src/Google/Service/")
+s.copy(repository / "output_dir", "src/Google/Service/")
