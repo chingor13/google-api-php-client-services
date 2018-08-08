@@ -14,11 +14,9 @@
 
 """This script is used to synthesize generated parts of this library."""
 
-from synthtool import _tracked_paths
 import synthtool as s
-import synthtool.log as log
-import synthtool.shell as shell
-import synthtool.sources.git as git
+from synthtool import log, shell
+from synthtool.sources import git
 import logging
 import os
 import glob
@@ -32,7 +30,9 @@ repository = git.clone(repository_url, depth=1)
 
 log.debug("Installing dependencies.")
 shell.run("mkdir -p output_dir".split(), cwd=repository)
-shell.run("python2 setup.py install".split(), cwd=repository / "google-api-client-generator")
+shell.run(
+    "python2 setup.py install".split(), cwd=repository / "google-api-client-generator"
+)
 
 # run the generator for each discovery json file
 for file in glob.glob(str(repository / "discoveries/*.v*.json")):
@@ -40,8 +40,6 @@ for file in glob.glob(str(repository / "discoveries/*.v*.json")):
     command = f"python2 src/googleapis/codegen/generate_library.py --output_dir=../output_dir --input=../{disco} --language=php --language_variant=1.2.0"
     log.debug(f"Generating {disco}.")
     shell.run(command.split(), cwd=repository / "google-api-client-generator")
-
-_tracked_paths.add(repository)
 
 # copy src
 s.copy(repository / "output_dir", "src/Google/Service/")
