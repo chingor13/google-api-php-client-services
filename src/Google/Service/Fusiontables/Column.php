@@ -15,22 +15,19 @@
  * the License.
  */
 
-class Google_Service_Fusiontables_Column extends Google_Collection
+class Google_Service_Fusiontables_Column extends Google_Model
 {
-  protected $collection_key = 'validValues';
+  protected $internal_gapi_mappings = array(
+        "graphPredicate" => "graph_predicate",
+  );
   protected $baseColumnType = 'Google_Service_Fusiontables_ColumnBaseColumn';
   protected $baseColumnDataType = '';
   public $columnId;
-  public $columnJsonSchema;
-  public $columnPropertiesJson;
   public $description;
-  public $formatPattern;
   public $graphPredicate;
   public $kind;
   public $name;
   public $type;
-  public $validValues;
-  public $validateData;
 
   /**
    * @param Google_Service_Fusiontables_ColumnBaseColumn
@@ -54,22 +51,6 @@ class Google_Service_Fusiontables_Column extends Google_Collection
   {
     return $this->columnId;
   }
-  public function setColumnJsonSchema($columnJsonSchema)
-  {
-    $this->columnJsonSchema = $columnJsonSchema;
-  }
-  public function getColumnJsonSchema()
-  {
-    return $this->columnJsonSchema;
-  }
-  public function setColumnPropertiesJson($columnPropertiesJson)
-  {
-    $this->columnPropertiesJson = $columnPropertiesJson;
-  }
-  public function getColumnPropertiesJson()
-  {
-    return $this->columnPropertiesJson;
-  }
   public function setDescription($description)
   {
     $this->description = $description;
@@ -77,14 +58,6 @@ class Google_Service_Fusiontables_Column extends Google_Collection
   public function getDescription()
   {
     return $this->description;
-  }
-  public function setFormatPattern($formatPattern)
-  {
-    $this->formatPattern = $formatPattern;
-  }
-  public function getFormatPattern()
-  {
-    return $this->formatPattern;
   }
   public function setGraphPredicate($graphPredicate)
   {
@@ -117,21 +90,5 @@ class Google_Service_Fusiontables_Column extends Google_Collection
   public function getType()
   {
     return $this->type;
-  }
-  public function setValidValues($validValues)
-  {
-    $this->validValues = $validValues;
-  }
-  public function getValidValues()
-  {
-    return $this->validValues;
-  }
-  public function setValidateData($validateData)
-  {
-    $this->validateData = $validateData;
-  }
-  public function getValidateData()
-  {
-    return $this->validateData;
   }
 }

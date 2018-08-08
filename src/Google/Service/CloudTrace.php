@@ -16,7 +16,7 @@
  */
 
 /**
- * Service definition for CloudTrace (v2).
+ * Service definition for CloudTrace (v1).
  *
  * <p>
  * Sends application trace data to Stackdriver Trace for viewing. Trace data is
@@ -38,9 +38,12 @@ class Google_Service_CloudTrace extends Google_Service
   /** Write Trace data for a project or application. */
   const TRACE_APPEND =
       "https://www.googleapis.com/auth/trace.append";
+  /** Read Trace data for a project or application. */
+  const TRACE_READONLY =
+      "https://www.googleapis.com/auth/trace.readonly";
 
+  public $projects;
   public $projects_traces;
-  public $projects_traces_spans;
   
   /**
    * Constructs the internal representation of the CloudTrace service.
@@ -52,20 +55,20 @@ class Google_Service_CloudTrace extends Google_Service
     parent::__construct($client);
     $this->rootUrl = 'https://cloudtrace.googleapis.com/';
     $this->servicePath = '';
-    $this->version = 'v2';
+    $this->version = 'v1';
     $this->serviceName = 'cloudtrace';
 
-    $this->projects_traces = new Google_Service_CloudTrace_Resource_ProjectsTraces(
+    $this->projects = new Google_Service_CloudTrace_Resource_Projects(
         $this,
         $this->serviceName,
-        'traces',
+        'projects',
         array(
           'methods' => array(
-            'batchWrite' => array(
-              'path' => 'v2/{+name}/traces:batchWrite',
-              'httpMethod' => 'POST',
+            'patchTraces' => array(
+              'path' => 'v1/projects/{projectId}/traces',
+              'httpMethod' => 'PATCH',
               'parameters' => array(
-                'name' => array(
+                'projectId' => array(
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
@@ -75,20 +78,63 @@ class Google_Service_CloudTrace extends Google_Service
           )
         )
     );
-    $this->projects_traces_spans = new Google_Service_CloudTrace_Resource_ProjectsTracesSpans(
+    $this->projects_traces = new Google_Service_CloudTrace_Resource_ProjectsTraces(
         $this,
         $this->serviceName,
-        'spans',
+        'traces',
         array(
           'methods' => array(
-            'createSpan' => array(
-              'path' => 'v2/{+name}',
-              'httpMethod' => 'POST',
+            'get' => array(
+              'path' => 'v1/projects/{projectId}/traces/{traceId}',
+              'httpMethod' => 'GET',
               'parameters' => array(
-                'name' => array(
+                'projectId' => array(
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
+                ),
+                'traceId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'list' => array(
+              'path' => 'v1/projects/{projectId}/traces',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'projectId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'orderBy' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'filter' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'endTime' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'startTime' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'pageSize' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'view' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),

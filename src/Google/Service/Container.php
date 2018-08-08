@@ -16,7 +16,7 @@
  */
 
 /**
- * Service definition for Container (v1).
+ * Service definition for Container (v1beta1).
  *
  * <p>
  * The Google Kubernetes Engine API is used for building and managing container
@@ -35,6 +35,8 @@ class Google_Service_Container extends Google_Service
   const CLOUD_PLATFORM =
       "https://www.googleapis.com/auth/cloud-platform";
 
+  public $projects;
+  public $projects_aggregated_usableSubnetworks;
   public $projects_locations;
   public $projects_locations_clusters;
   public $projects_locations_clusters_nodePools;
@@ -54,9 +56,81 @@ class Google_Service_Container extends Google_Service
     parent::__construct($client);
     $this->rootUrl = 'https://container.googleapis.com/';
     $this->servicePath = '';
-    $this->version = 'v1';
+    $this->version = 'v1beta1';
     $this->serviceName = 'container';
 
+    $this->projects = new Google_Service_Container_Resource_Projects(
+        $this,
+        $this->serviceName,
+        'projects',
+        array(
+          'methods' => array(
+            'getIamPolicy' => array(
+              'path' => 'v1beta1/{+resource}:getIamPolicy',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'resource' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'setIamPolicy' => array(
+              'path' => 'v1beta1/{+resource}:setIamPolicy',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'resource' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'testIamPermissions' => array(
+              'path' => 'v1beta1/{+resource}:testIamPermissions',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'resource' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),
+          )
+        )
+    );
+    $this->projects_aggregated_usableSubnetworks = new Google_Service_Container_Resource_ProjectsAggregatedUsableSubnetworks(
+        $this,
+        $this->serviceName,
+        'usableSubnetworks',
+        array(
+          'methods' => array(
+            'list' => array(
+              'path' => 'v1beta1/{+parent}/aggregated/usableSubnetworks',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'parent' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'filter' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'pageSize' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+              ),
+            ),
+          )
+        )
+    );
     $this->projects_locations = new Google_Service_Container_Resource_ProjectsLocations(
         $this,
         $this->serviceName,
@@ -64,7 +138,7 @@ class Google_Service_Container extends Google_Service
         array(
           'methods' => array(
             'getServerConfig' => array(
-              'path' => 'v1/{+name}/serverConfig',
+              'path' => 'v1beta1/{+name}/serverConfig',
               'httpMethod' => 'GET',
               'parameters' => array(
                 'name' => array(
@@ -72,13 +146,23 @@ class Google_Service_Container extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
+                'zone' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
                 'projectId' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'zone' => array(
-                  'location' => 'query',
+              ),
+            ),'list' => array(
+              'path' => 'v1beta1/{+parent}/locations',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'parent' => array(
+                  'location' => 'path',
                   'type' => 'string',
+                  'required' => true,
                 ),
               ),
             ),
@@ -92,7 +176,7 @@ class Google_Service_Container extends Google_Service
         array(
           'methods' => array(
             'completeIpRotation' => array(
-              'path' => 'v1/{+name}:completeIpRotation',
+              'path' => 'v1beta1/{+name}:completeIpRotation',
               'httpMethod' => 'POST',
               'parameters' => array(
                 'name' => array(
@@ -102,7 +186,7 @@ class Google_Service_Container extends Google_Service
                 ),
               ),
             ),'create' => array(
-              'path' => 'v1/{+parent}/clusters',
+              'path' => 'v1beta1/{+parent}/clusters',
               'httpMethod' => 'POST',
               'parameters' => array(
                 'parent' => array(
@@ -112,7 +196,7 @@ class Google_Service_Container extends Google_Service
                 ),
               ),
             ),'delete' => array(
-              'path' => 'v1/{+name}',
+              'path' => 'v1beta1/{+name}',
               'httpMethod' => 'DELETE',
               'parameters' => array(
                 'name' => array(
@@ -120,10 +204,6 @@ class Google_Service_Container extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'projectId' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'zone' => array(
                   'location' => 'query',
                   'type' => 'string',
@@ -132,9 +212,13 @@ class Google_Service_Container extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
+                'projectId' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
               ),
             ),'get' => array(
-              'path' => 'v1/{+name}',
+              'path' => 'v1beta1/{+name}',
               'httpMethod' => 'GET',
               'parameters' => array(
                 'name' => array(
@@ -142,10 +226,6 @@ class Google_Service_Container extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'projectId' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'zone' => array(
                   'location' => 'query',
                   'type' => 'string',
@@ -154,9 +234,13 @@ class Google_Service_Container extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
+                'projectId' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
               ),
             ),'list' => array(
-              'path' => 'v1/{+parent}/clusters',
+              'path' => 'v1beta1/{+parent}/clusters',
               'httpMethod' => 'GET',
               'parameters' => array(
                 'parent' => array(
@@ -164,17 +248,17 @@ class Google_Service_Container extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'projectId' => array(
+                'zone' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'zone' => array(
+                'projectId' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
               ),
             ),'setAddons' => array(
-              'path' => 'v1/{+name}:setAddons',
+              'path' => 'v1beta1/{+name}:setAddons',
               'httpMethod' => 'POST',
               'parameters' => array(
                 'name' => array(
@@ -184,7 +268,7 @@ class Google_Service_Container extends Google_Service
                 ),
               ),
             ),'setLegacyAbac' => array(
-              'path' => 'v1/{+name}:setLegacyAbac',
+              'path' => 'v1beta1/{+name}:setLegacyAbac',
               'httpMethod' => 'POST',
               'parameters' => array(
                 'name' => array(
@@ -194,7 +278,7 @@ class Google_Service_Container extends Google_Service
                 ),
               ),
             ),'setLocations' => array(
-              'path' => 'v1/{+name}:setLocations',
+              'path' => 'v1beta1/{+name}:setLocations',
               'httpMethod' => 'POST',
               'parameters' => array(
                 'name' => array(
@@ -204,7 +288,7 @@ class Google_Service_Container extends Google_Service
                 ),
               ),
             ),'setLogging' => array(
-              'path' => 'v1/{+name}:setLogging',
+              'path' => 'v1beta1/{+name}:setLogging',
               'httpMethod' => 'POST',
               'parameters' => array(
                 'name' => array(
@@ -214,7 +298,7 @@ class Google_Service_Container extends Google_Service
                 ),
               ),
             ),'setMaintenancePolicy' => array(
-              'path' => 'v1/{+name}:setMaintenancePolicy',
+              'path' => 'v1beta1/{+name}:setMaintenancePolicy',
               'httpMethod' => 'POST',
               'parameters' => array(
                 'name' => array(
@@ -224,7 +308,7 @@ class Google_Service_Container extends Google_Service
                 ),
               ),
             ),'setMasterAuth' => array(
-              'path' => 'v1/{+name}:setMasterAuth',
+              'path' => 'v1beta1/{+name}:setMasterAuth',
               'httpMethod' => 'POST',
               'parameters' => array(
                 'name' => array(
@@ -234,7 +318,7 @@ class Google_Service_Container extends Google_Service
                 ),
               ),
             ),'setMonitoring' => array(
-              'path' => 'v1/{+name}:setMonitoring',
+              'path' => 'v1beta1/{+name}:setMonitoring',
               'httpMethod' => 'POST',
               'parameters' => array(
                 'name' => array(
@@ -244,7 +328,7 @@ class Google_Service_Container extends Google_Service
                 ),
               ),
             ),'setNetworkPolicy' => array(
-              'path' => 'v1/{+name}:setNetworkPolicy',
+              'path' => 'v1beta1/{+name}:setNetworkPolicy',
               'httpMethod' => 'POST',
               'parameters' => array(
                 'name' => array(
@@ -254,7 +338,7 @@ class Google_Service_Container extends Google_Service
                 ),
               ),
             ),'setResourceLabels' => array(
-              'path' => 'v1/{+name}:setResourceLabels',
+              'path' => 'v1beta1/{+name}:setResourceLabels',
               'httpMethod' => 'POST',
               'parameters' => array(
                 'name' => array(
@@ -264,7 +348,7 @@ class Google_Service_Container extends Google_Service
                 ),
               ),
             ),'startIpRotation' => array(
-              'path' => 'v1/{+name}:startIpRotation',
+              'path' => 'v1beta1/{+name}:startIpRotation',
               'httpMethod' => 'POST',
               'parameters' => array(
                 'name' => array(
@@ -274,7 +358,7 @@ class Google_Service_Container extends Google_Service
                 ),
               ),
             ),'update' => array(
-              'path' => 'v1/{+name}',
+              'path' => 'v1beta1/{+name}',
               'httpMethod' => 'PUT',
               'parameters' => array(
                 'name' => array(
@@ -284,7 +368,7 @@ class Google_Service_Container extends Google_Service
                 ),
               ),
             ),'updateMaster' => array(
-              'path' => 'v1/{+name}:updateMaster',
+              'path' => 'v1beta1/{+name}:updateMaster',
               'httpMethod' => 'POST',
               'parameters' => array(
                 'name' => array(
@@ -304,7 +388,7 @@ class Google_Service_Container extends Google_Service
         array(
           'methods' => array(
             'create' => array(
-              'path' => 'v1/{+parent}/nodePools',
+              'path' => 'v1beta1/{+parent}/nodePools',
               'httpMethod' => 'POST',
               'parameters' => array(
                 'parent' => array(
@@ -314,17 +398,13 @@ class Google_Service_Container extends Google_Service
                 ),
               ),
             ),'delete' => array(
-              'path' => 'v1/{+name}',
+              'path' => 'v1beta1/{+name}',
               'httpMethod' => 'DELETE',
               'parameters' => array(
                 'name' => array(
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
-                ),
-                'nodePoolId' => array(
-                  'location' => 'query',
-                  'type' => 'string',
                 ),
                 'projectId' => array(
                   'location' => 'query',
@@ -338,9 +418,13 @@ class Google_Service_Container extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
+                'nodePoolId' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
               ),
             ),'get' => array(
-              'path' => 'v1/{+name}',
+              'path' => 'v1beta1/{+name}',
               'httpMethod' => 'GET',
               'parameters' => array(
                 'name' => array(
@@ -366,7 +450,7 @@ class Google_Service_Container extends Google_Service
                 ),
               ),
             ),'list' => array(
-              'path' => 'v1/{+parent}/nodePools',
+              'path' => 'v1beta1/{+parent}/nodePools',
               'httpMethod' => 'GET',
               'parameters' => array(
                 'parent' => array(
@@ -388,7 +472,7 @@ class Google_Service_Container extends Google_Service
                 ),
               ),
             ),'rollback' => array(
-              'path' => 'v1/{+name}:rollback',
+              'path' => 'v1beta1/{+name}:rollback',
               'httpMethod' => 'POST',
               'parameters' => array(
                 'name' => array(
@@ -398,7 +482,7 @@ class Google_Service_Container extends Google_Service
                 ),
               ),
             ),'setAutoscaling' => array(
-              'path' => 'v1/{+name}:setAutoscaling',
+              'path' => 'v1beta1/{+name}:setAutoscaling',
               'httpMethod' => 'POST',
               'parameters' => array(
                 'name' => array(
@@ -408,7 +492,7 @@ class Google_Service_Container extends Google_Service
                 ),
               ),
             ),'setManagement' => array(
-              'path' => 'v1/{+name}:setManagement',
+              'path' => 'v1beta1/{+name}:setManagement',
               'httpMethod' => 'POST',
               'parameters' => array(
                 'name' => array(
@@ -418,7 +502,7 @@ class Google_Service_Container extends Google_Service
                 ),
               ),
             ),'setSize' => array(
-              'path' => 'v1/{+name}:setSize',
+              'path' => 'v1beta1/{+name}:setSize',
               'httpMethod' => 'POST',
               'parameters' => array(
                 'name' => array(
@@ -428,7 +512,7 @@ class Google_Service_Container extends Google_Service
                 ),
               ),
             ),'update' => array(
-              'path' => 'v1/{+name}',
+              'path' => 'v1beta1/{+name}',
               'httpMethod' => 'PUT',
               'parameters' => array(
                 'name' => array(
@@ -448,7 +532,7 @@ class Google_Service_Container extends Google_Service
         array(
           'methods' => array(
             'cancel' => array(
-              'path' => 'v1/{+name}:cancel',
+              'path' => 'v1beta1/{+name}:cancel',
               'httpMethod' => 'POST',
               'parameters' => array(
                 'name' => array(
@@ -458,7 +542,7 @@ class Google_Service_Container extends Google_Service
                 ),
               ),
             ),'get' => array(
-              'path' => 'v1/{+name}',
+              'path' => 'v1beta1/{+name}',
               'httpMethod' => 'GET',
               'parameters' => array(
                 'name' => array(
@@ -480,7 +564,7 @@ class Google_Service_Container extends Google_Service
                 ),
               ),
             ),'list' => array(
-              'path' => 'v1/{+parent}/operations',
+              'path' => 'v1beta1/{+parent}/operations',
               'httpMethod' => 'GET',
               'parameters' => array(
                 'parent' => array(
@@ -488,11 +572,11 @@ class Google_Service_Container extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'projectId' => array(
+                'zone' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'zone' => array(
+                'projectId' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -508,7 +592,7 @@ class Google_Service_Container extends Google_Service
         array(
           'methods' => array(
             'getServerconfig' => array(
-              'path' => 'v1/projects/{projectId}/zones/{zone}/serverconfig',
+              'path' => 'v1beta1/projects/{projectId}/zones/{zone}/serverconfig',
               'httpMethod' => 'GET',
               'parameters' => array(
                 'projectId' => array(
@@ -537,7 +621,7 @@ class Google_Service_Container extends Google_Service
         array(
           'methods' => array(
             'addons' => array(
-              'path' => 'v1/projects/{projectId}/zones/{zone}/clusters/{clusterId}/addons',
+              'path' => 'v1beta1/projects/{projectId}/zones/{zone}/clusters/{clusterId}/addons',
               'httpMethod' => 'POST',
               'parameters' => array(
                 'projectId' => array(
@@ -557,7 +641,7 @@ class Google_Service_Container extends Google_Service
                 ),
               ),
             ),'completeIpRotation' => array(
-              'path' => 'v1/projects/{projectId}/zones/{zone}/clusters/{clusterId}:completeIpRotation',
+              'path' => 'v1beta1/projects/{projectId}/zones/{zone}/clusters/{clusterId}:completeIpRotation',
               'httpMethod' => 'POST',
               'parameters' => array(
                 'projectId' => array(
@@ -577,7 +661,7 @@ class Google_Service_Container extends Google_Service
                 ),
               ),
             ),'create' => array(
-              'path' => 'v1/projects/{projectId}/zones/{zone}/clusters',
+              'path' => 'v1beta1/projects/{projectId}/zones/{zone}/clusters',
               'httpMethod' => 'POST',
               'parameters' => array(
                 'projectId' => array(
@@ -592,7 +676,7 @@ class Google_Service_Container extends Google_Service
                 ),
               ),
             ),'delete' => array(
-              'path' => 'v1/projects/{projectId}/zones/{zone}/clusters/{clusterId}',
+              'path' => 'v1beta1/projects/{projectId}/zones/{zone}/clusters/{clusterId}',
               'httpMethod' => 'DELETE',
               'parameters' => array(
                 'projectId' => array(
@@ -616,7 +700,7 @@ class Google_Service_Container extends Google_Service
                 ),
               ),
             ),'get' => array(
-              'path' => 'v1/projects/{projectId}/zones/{zone}/clusters/{clusterId}',
+              'path' => 'v1beta1/projects/{projectId}/zones/{zone}/clusters/{clusterId}',
               'httpMethod' => 'GET',
               'parameters' => array(
                 'projectId' => array(
@@ -640,7 +724,7 @@ class Google_Service_Container extends Google_Service
                 ),
               ),
             ),'legacyAbac' => array(
-              'path' => 'v1/projects/{projectId}/zones/{zone}/clusters/{clusterId}/legacyAbac',
+              'path' => 'v1beta1/projects/{projectId}/zones/{zone}/clusters/{clusterId}/legacyAbac',
               'httpMethod' => 'POST',
               'parameters' => array(
                 'projectId' => array(
@@ -660,7 +744,7 @@ class Google_Service_Container extends Google_Service
                 ),
               ),
             ),'list' => array(
-              'path' => 'v1/projects/{projectId}/zones/{zone}/clusters',
+              'path' => 'v1beta1/projects/{projectId}/zones/{zone}/clusters',
               'httpMethod' => 'GET',
               'parameters' => array(
                 'projectId' => array(
@@ -679,7 +763,7 @@ class Google_Service_Container extends Google_Service
                 ),
               ),
             ),'locations' => array(
-              'path' => 'v1/projects/{projectId}/zones/{zone}/clusters/{clusterId}/locations',
+              'path' => 'v1beta1/projects/{projectId}/zones/{zone}/clusters/{clusterId}/locations',
               'httpMethod' => 'POST',
               'parameters' => array(
                 'projectId' => array(
@@ -699,7 +783,7 @@ class Google_Service_Container extends Google_Service
                 ),
               ),
             ),'logging' => array(
-              'path' => 'v1/projects/{projectId}/zones/{zone}/clusters/{clusterId}/logging',
+              'path' => 'v1beta1/projects/{projectId}/zones/{zone}/clusters/{clusterId}/logging',
               'httpMethod' => 'POST',
               'parameters' => array(
                 'projectId' => array(
@@ -719,7 +803,7 @@ class Google_Service_Container extends Google_Service
                 ),
               ),
             ),'master' => array(
-              'path' => 'v1/projects/{projectId}/zones/{zone}/clusters/{clusterId}/master',
+              'path' => 'v1beta1/projects/{projectId}/zones/{zone}/clusters/{clusterId}/master',
               'httpMethod' => 'POST',
               'parameters' => array(
                 'projectId' => array(
@@ -739,7 +823,7 @@ class Google_Service_Container extends Google_Service
                 ),
               ),
             ),'monitoring' => array(
-              'path' => 'v1/projects/{projectId}/zones/{zone}/clusters/{clusterId}/monitoring',
+              'path' => 'v1beta1/projects/{projectId}/zones/{zone}/clusters/{clusterId}/monitoring',
               'httpMethod' => 'POST',
               'parameters' => array(
                 'projectId' => array(
@@ -759,7 +843,7 @@ class Google_Service_Container extends Google_Service
                 ),
               ),
             ),'resourceLabels' => array(
-              'path' => 'v1/projects/{projectId}/zones/{zone}/clusters/{clusterId}/resourceLabels',
+              'path' => 'v1beta1/projects/{projectId}/zones/{zone}/clusters/{clusterId}/resourceLabels',
               'httpMethod' => 'POST',
               'parameters' => array(
                 'projectId' => array(
@@ -779,7 +863,7 @@ class Google_Service_Container extends Google_Service
                 ),
               ),
             ),'setMaintenancePolicy' => array(
-              'path' => 'v1/projects/{projectId}/zones/{zone}/clusters/{clusterId}:setMaintenancePolicy',
+              'path' => 'v1beta1/projects/{projectId}/zones/{zone}/clusters/{clusterId}:setMaintenancePolicy',
               'httpMethod' => 'POST',
               'parameters' => array(
                 'projectId' => array(
@@ -799,7 +883,7 @@ class Google_Service_Container extends Google_Service
                 ),
               ),
             ),'setMasterAuth' => array(
-              'path' => 'v1/projects/{projectId}/zones/{zone}/clusters/{clusterId}:setMasterAuth',
+              'path' => 'v1beta1/projects/{projectId}/zones/{zone}/clusters/{clusterId}:setMasterAuth',
               'httpMethod' => 'POST',
               'parameters' => array(
                 'projectId' => array(
@@ -819,7 +903,7 @@ class Google_Service_Container extends Google_Service
                 ),
               ),
             ),'setNetworkPolicy' => array(
-              'path' => 'v1/projects/{projectId}/zones/{zone}/clusters/{clusterId}:setNetworkPolicy',
+              'path' => 'v1beta1/projects/{projectId}/zones/{zone}/clusters/{clusterId}:setNetworkPolicy',
               'httpMethod' => 'POST',
               'parameters' => array(
                 'projectId' => array(
@@ -839,7 +923,7 @@ class Google_Service_Container extends Google_Service
                 ),
               ),
             ),'startIpRotation' => array(
-              'path' => 'v1/projects/{projectId}/zones/{zone}/clusters/{clusterId}:startIpRotation',
+              'path' => 'v1beta1/projects/{projectId}/zones/{zone}/clusters/{clusterId}:startIpRotation',
               'httpMethod' => 'POST',
               'parameters' => array(
                 'projectId' => array(
@@ -859,7 +943,7 @@ class Google_Service_Container extends Google_Service
                 ),
               ),
             ),'update' => array(
-              'path' => 'v1/projects/{projectId}/zones/{zone}/clusters/{clusterId}',
+              'path' => 'v1beta1/projects/{projectId}/zones/{zone}/clusters/{clusterId}',
               'httpMethod' => 'PUT',
               'parameters' => array(
                 'projectId' => array(
@@ -889,7 +973,7 @@ class Google_Service_Container extends Google_Service
         array(
           'methods' => array(
             'autoscaling' => array(
-              'path' => 'v1/projects/{projectId}/zones/{zone}/clusters/{clusterId}/nodePools/{nodePoolId}/autoscaling',
+              'path' => 'v1beta1/projects/{projectId}/zones/{zone}/clusters/{clusterId}/nodePools/{nodePoolId}/autoscaling',
               'httpMethod' => 'POST',
               'parameters' => array(
                 'projectId' => array(
@@ -914,7 +998,7 @@ class Google_Service_Container extends Google_Service
                 ),
               ),
             ),'create' => array(
-              'path' => 'v1/projects/{projectId}/zones/{zone}/clusters/{clusterId}/nodePools',
+              'path' => 'v1beta1/projects/{projectId}/zones/{zone}/clusters/{clusterId}/nodePools',
               'httpMethod' => 'POST',
               'parameters' => array(
                 'projectId' => array(
@@ -934,7 +1018,7 @@ class Google_Service_Container extends Google_Service
                 ),
               ),
             ),'delete' => array(
-              'path' => 'v1/projects/{projectId}/zones/{zone}/clusters/{clusterId}/nodePools/{nodePoolId}',
+              'path' => 'v1beta1/projects/{projectId}/zones/{zone}/clusters/{clusterId}/nodePools/{nodePoolId}',
               'httpMethod' => 'DELETE',
               'parameters' => array(
                 'projectId' => array(
@@ -963,7 +1047,7 @@ class Google_Service_Container extends Google_Service
                 ),
               ),
             ),'get' => array(
-              'path' => 'v1/projects/{projectId}/zones/{zone}/clusters/{clusterId}/nodePools/{nodePoolId}',
+              'path' => 'v1beta1/projects/{projectId}/zones/{zone}/clusters/{clusterId}/nodePools/{nodePoolId}',
               'httpMethod' => 'GET',
               'parameters' => array(
                 'projectId' => array(
@@ -992,7 +1076,7 @@ class Google_Service_Container extends Google_Service
                 ),
               ),
             ),'list' => array(
-              'path' => 'v1/projects/{projectId}/zones/{zone}/clusters/{clusterId}/nodePools',
+              'path' => 'v1beta1/projects/{projectId}/zones/{zone}/clusters/{clusterId}/nodePools',
               'httpMethod' => 'GET',
               'parameters' => array(
                 'projectId' => array(
@@ -1016,7 +1100,7 @@ class Google_Service_Container extends Google_Service
                 ),
               ),
             ),'rollback' => array(
-              'path' => 'v1/projects/{projectId}/zones/{zone}/clusters/{clusterId}/nodePools/{nodePoolId}:rollback',
+              'path' => 'v1beta1/projects/{projectId}/zones/{zone}/clusters/{clusterId}/nodePools/{nodePoolId}:rollback',
               'httpMethod' => 'POST',
               'parameters' => array(
                 'projectId' => array(
@@ -1041,7 +1125,7 @@ class Google_Service_Container extends Google_Service
                 ),
               ),
             ),'setManagement' => array(
-              'path' => 'v1/projects/{projectId}/zones/{zone}/clusters/{clusterId}/nodePools/{nodePoolId}/setManagement',
+              'path' => 'v1beta1/projects/{projectId}/zones/{zone}/clusters/{clusterId}/nodePools/{nodePoolId}/setManagement',
               'httpMethod' => 'POST',
               'parameters' => array(
                 'projectId' => array(
@@ -1066,7 +1150,7 @@ class Google_Service_Container extends Google_Service
                 ),
               ),
             ),'setSize' => array(
-              'path' => 'v1/projects/{projectId}/zones/{zone}/clusters/{clusterId}/nodePools/{nodePoolId}/setSize',
+              'path' => 'v1beta1/projects/{projectId}/zones/{zone}/clusters/{clusterId}/nodePools/{nodePoolId}/setSize',
               'httpMethod' => 'POST',
               'parameters' => array(
                 'projectId' => array(
@@ -1091,7 +1175,7 @@ class Google_Service_Container extends Google_Service
                 ),
               ),
             ),'update' => array(
-              'path' => 'v1/projects/{projectId}/zones/{zone}/clusters/{clusterId}/nodePools/{nodePoolId}/update',
+              'path' => 'v1beta1/projects/{projectId}/zones/{zone}/clusters/{clusterId}/nodePools/{nodePoolId}/update',
               'httpMethod' => 'POST',
               'parameters' => array(
                 'projectId' => array(
@@ -1126,7 +1210,7 @@ class Google_Service_Container extends Google_Service
         array(
           'methods' => array(
             'cancel' => array(
-              'path' => 'v1/projects/{projectId}/zones/{zone}/operations/{operationId}:cancel',
+              'path' => 'v1beta1/projects/{projectId}/zones/{zone}/operations/{operationId}:cancel',
               'httpMethod' => 'POST',
               'parameters' => array(
                 'projectId' => array(
@@ -1146,7 +1230,7 @@ class Google_Service_Container extends Google_Service
                 ),
               ),
             ),'get' => array(
-              'path' => 'v1/projects/{projectId}/zones/{zone}/operations/{operationId}',
+              'path' => 'v1beta1/projects/{projectId}/zones/{zone}/operations/{operationId}',
               'httpMethod' => 'GET',
               'parameters' => array(
                 'projectId' => array(
@@ -1170,7 +1254,7 @@ class Google_Service_Container extends Google_Service
                 ),
               ),
             ),'list' => array(
-              'path' => 'v1/projects/{projectId}/zones/{zone}/operations',
+              'path' => 'v1beta1/projects/{projectId}/zones/{zone}/operations',
               'httpMethod' => 'GET',
               'parameters' => array(
                 'projectId' => array(

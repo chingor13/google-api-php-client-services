@@ -22,6 +22,8 @@ class Google_Service_Container_Operation extends Google_Model
   public $location;
   public $name;
   public $operationType;
+  protected $progressType = 'Google_Service_Container_OperationProgress';
+  protected $progressDataType = '';
   public $selfLink;
   public $startTime;
   public $status;
@@ -68,6 +70,20 @@ class Google_Service_Container_Operation extends Google_Model
   public function getOperationType()
   {
     return $this->operationType;
+  }
+  /**
+   * @param Google_Service_Container_OperationProgress
+   */
+  public function setProgress(Google_Service_Container_OperationProgress $progress)
+  {
+    $this->progress = $progress;
+  }
+  /**
+   * @return Google_Service_Container_OperationProgress
+   */
+  public function getProgress()
+  {
+    return $this->progress;
   }
   public function setSelfLink($selfLink)
   {

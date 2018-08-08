@@ -19,6 +19,7 @@ class Google_Service_Pubsub_ModifyPushConfigRequest extends Google_Model
 {
   protected $pushConfigType = 'Google_Service_Pubsub_PushConfig';
   protected $pushConfigDataType = '';
+  public $subscription;
 
   /**
    * @param Google_Service_Pubsub_PushConfig
@@ -33,5 +34,13 @@ class Google_Service_Pubsub_ModifyPushConfigRequest extends Google_Model
   public function getPushConfig()
   {
     return $this->pushConfig;
+  }
+  public function setSubscription($subscription)
+  {
+    $this->subscription = $subscription;
+  }
+  public function getSubscription()
+  {
+    return $this->subscription;
   }
 }

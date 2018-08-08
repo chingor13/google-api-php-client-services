@@ -17,17 +17,9 @@
 
 class Google_Service_Pubsub_PullRequest extends Google_Model
 {
-  public $maxMessages;
   public $returnImmediately;
+  public $subscription;
 
-  public function setMaxMessages($maxMessages)
-  {
-    $this->maxMessages = $maxMessages;
-  }
-  public function getMaxMessages()
-  {
-    return $this->maxMessages;
-  }
   public function setReturnImmediately($returnImmediately)
   {
     $this->returnImmediately = $returnImmediately;
@@ -35,5 +27,13 @@ class Google_Service_Pubsub_PullRequest extends Google_Model
   public function getReturnImmediately()
   {
     return $this->returnImmediately;
+  }
+  public function setSubscription($subscription)
+  {
+    $this->subscription = $subscription;
+  }
+  public function getSubscription()
+  {
+    return $this->subscription;
   }
 }
