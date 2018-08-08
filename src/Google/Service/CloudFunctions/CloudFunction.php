@@ -18,22 +18,23 @@
 class Google_Service_CloudFunctions_CloudFunction extends Google_Model
 {
   public $availableMemoryMb;
-  public $description;
   public $entryPoint;
   public $environmentVariables;
   protected $eventTriggerType = 'Google_Service_CloudFunctions_EventTrigger';
   protected $eventTriggerDataType = '';
-  protected $httpsTriggerType = 'Google_Service_CloudFunctions_HttpsTrigger';
+  protected $httpsTriggerType = 'Google_Service_CloudFunctions_HTTPSTrigger';
   protected $httpsTriggerDataType = '';
   public $labels;
+  public $latestOperation;
   public $maxInstances;
   public $name;
   public $network;
   public $runtime;
-  public $serviceAccountEmail;
+  public $serviceAccount;
   public $sourceArchiveUrl;
   protected $sourceRepositoryType = 'Google_Service_CloudFunctions_SourceRepository';
   protected $sourceRepositoryDataType = '';
+  public $sourceRepositoryUrl;
   public $sourceUploadUrl;
   public $status;
   public $timeout;
@@ -47,14 +48,6 @@ class Google_Service_CloudFunctions_CloudFunction extends Google_Model
   public function getAvailableMemoryMb()
   {
     return $this->availableMemoryMb;
-  }
-  public function setDescription($description)
-  {
-    $this->description = $description;
-  }
-  public function getDescription()
-  {
-    return $this->description;
   }
   public function setEntryPoint($entryPoint)
   {
@@ -87,14 +80,14 @@ class Google_Service_CloudFunctions_CloudFunction extends Google_Model
     return $this->eventTrigger;
   }
   /**
-   * @param Google_Service_CloudFunctions_HttpsTrigger
+   * @param Google_Service_CloudFunctions_HTTPSTrigger
    */
-  public function setHttpsTrigger(Google_Service_CloudFunctions_HttpsTrigger $httpsTrigger)
+  public function setHttpsTrigger(Google_Service_CloudFunctions_HTTPSTrigger $httpsTrigger)
   {
     $this->httpsTrigger = $httpsTrigger;
   }
   /**
-   * @return Google_Service_CloudFunctions_HttpsTrigger
+   * @return Google_Service_CloudFunctions_HTTPSTrigger
    */
   public function getHttpsTrigger()
   {
@@ -107,6 +100,14 @@ class Google_Service_CloudFunctions_CloudFunction extends Google_Model
   public function getLabels()
   {
     return $this->labels;
+  }
+  public function setLatestOperation($latestOperation)
+  {
+    $this->latestOperation = $latestOperation;
+  }
+  public function getLatestOperation()
+  {
+    return $this->latestOperation;
   }
   public function setMaxInstances($maxInstances)
   {
@@ -140,13 +141,13 @@ class Google_Service_CloudFunctions_CloudFunction extends Google_Model
   {
     return $this->runtime;
   }
-  public function setServiceAccountEmail($serviceAccountEmail)
+  public function setServiceAccount($serviceAccount)
   {
-    $this->serviceAccountEmail = $serviceAccountEmail;
+    $this->serviceAccount = $serviceAccount;
   }
-  public function getServiceAccountEmail()
+  public function getServiceAccount()
   {
-    return $this->serviceAccountEmail;
+    return $this->serviceAccount;
   }
   public function setSourceArchiveUrl($sourceArchiveUrl)
   {
@@ -169,6 +170,14 @@ class Google_Service_CloudFunctions_CloudFunction extends Google_Model
   public function getSourceRepository()
   {
     return $this->sourceRepository;
+  }
+  public function setSourceRepositoryUrl($sourceRepositoryUrl)
+  {
+    $this->sourceRepositoryUrl = $sourceRepositoryUrl;
+  }
+  public function getSourceRepositoryUrl()
+  {
+    return $this->sourceRepositoryUrl;
   }
   public function setSourceUploadUrl($sourceUploadUrl)
   {

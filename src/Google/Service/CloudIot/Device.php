@@ -18,34 +18,21 @@
 class Google_Service_CloudIot_Device extends Google_Collection
 {
   protected $collection_key = 'credentials';
-  public $blocked;
   protected $configType = 'Google_Service_CloudIot_DeviceConfig';
   protected $configDataType = '';
   protected $credentialsType = 'Google_Service_CloudIot_DeviceCredential';
   protected $credentialsDataType = 'array';
+  public $enabledState;
   public $id;
   public $lastConfigAckTime;
-  public $lastConfigSendTime;
   protected $lastErrorStatusType = 'Google_Service_CloudIot_Status';
   protected $lastErrorStatusDataType = '';
   public $lastErrorTime;
   public $lastEventTime;
   public $lastHeartbeatTime;
-  public $lastStateTime;
-  public $metadata;
   public $name;
   public $numId;
-  protected $stateType = 'Google_Service_CloudIot_DeviceState';
-  protected $stateDataType = '';
 
-  public function setBlocked($blocked)
-  {
-    $this->blocked = $blocked;
-  }
-  public function getBlocked()
-  {
-    return $this->blocked;
-  }
   /**
    * @param Google_Service_CloudIot_DeviceConfig
    */
@@ -74,6 +61,14 @@ class Google_Service_CloudIot_Device extends Google_Collection
   {
     return $this->credentials;
   }
+  public function setEnabledState($enabledState)
+  {
+    $this->enabledState = $enabledState;
+  }
+  public function getEnabledState()
+  {
+    return $this->enabledState;
+  }
   public function setId($id)
   {
     $this->id = $id;
@@ -89,14 +84,6 @@ class Google_Service_CloudIot_Device extends Google_Collection
   public function getLastConfigAckTime()
   {
     return $this->lastConfigAckTime;
-  }
-  public function setLastConfigSendTime($lastConfigSendTime)
-  {
-    $this->lastConfigSendTime = $lastConfigSendTime;
-  }
-  public function getLastConfigSendTime()
-  {
-    return $this->lastConfigSendTime;
   }
   /**
    * @param Google_Service_CloudIot_Status
@@ -136,22 +123,6 @@ class Google_Service_CloudIot_Device extends Google_Collection
   {
     return $this->lastHeartbeatTime;
   }
-  public function setLastStateTime($lastStateTime)
-  {
-    $this->lastStateTime = $lastStateTime;
-  }
-  public function getLastStateTime()
-  {
-    return $this->lastStateTime;
-  }
-  public function setMetadata($metadata)
-  {
-    $this->metadata = $metadata;
-  }
-  public function getMetadata()
-  {
-    return $this->metadata;
-  }
   public function setName($name)
   {
     $this->name = $name;
@@ -167,19 +138,5 @@ class Google_Service_CloudIot_Device extends Google_Collection
   public function getNumId()
   {
     return $this->numId;
-  }
-  /**
-   * @param Google_Service_CloudIot_DeviceState
-   */
-  public function setState(Google_Service_CloudIot_DeviceState $state)
-  {
-    $this->state = $state;
-  }
-  /**
-   * @return Google_Service_CloudIot_DeviceState
-   */
-  public function getState()
-  {
-    return $this->state;
   }
 }

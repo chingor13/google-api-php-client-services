@@ -26,11 +26,11 @@
 class Google_Service_Appengine_Resource_AppsServicesVersions extends Google_Service_Resource
 {
   /**
-   * Deploys code and resource files to a new version. (versions.create)
+   * Deploys new code and resource files to a new version. (versions.create)
    *
-   * @param string $appsId Part of `parent`. Name of the parent resource to create
-   * this version under. Example: apps/myapp/services/default.
-   * @param string $servicesId Part of `parent`. See documentation of `appsId`.
+   * @param string $appsId Part of `name`. Name of the resource to update. For
+   * example: "apps/myapp/services/default".
+   * @param string $servicesId Part of `name`. See documentation of `appsId`.
    * @param Google_Service_Appengine_Version $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Appengine_Operation
@@ -42,7 +42,7 @@ class Google_Service_Appengine_Resource_AppsServicesVersions extends Google_Serv
     return $this->call('create', array($params), "Google_Service_Appengine_Operation");
   }
   /**
-   * Deletes an existing Version resource. (versions.delete)
+   * Deletes an existing version. (versions.delete)
    *
    * @param string $appsId Part of `name`. Name of the resource requested.
    * Example: apps/myapp/services/default/versions/v1.
@@ -81,16 +81,16 @@ class Google_Service_Appengine_Resource_AppsServicesVersions extends Google_Serv
   /**
    * Lists the versions of a service. (versions.listAppsServicesVersions)
    *
-   * @param string $appsId Part of `parent`. Name of the parent Service resource.
+   * @param string $appsId Part of `name`. Name of the resource requested.
    * Example: apps/myapp/services/default.
-   * @param string $servicesId Part of `parent`. See documentation of `appsId`.
+   * @param string $servicesId Part of `name`. See documentation of `appsId`.
    * @param array $optParams Optional parameters.
    *
+   * @opt_param string pageToken Continuation token for fetching the next page of
+   * results.
    * @opt_param int pageSize Maximum results to return per page.
    * @opt_param string view Controls the set of fields returned in the List
    * response.
-   * @opt_param string pageToken Continuation token for fetching the next page of
-   * results.
    * @return Google_Service_Appengine_ListVersionsResponse
    */
   public function listAppsServicesVersions($appsId, $servicesId, $optParams = array())
@@ -102,43 +102,21 @@ class Google_Service_Appengine_Resource_AppsServicesVersions extends Google_Serv
   /**
    * Updates the specified Version resource. You can specify the following fields
    * depending on the App Engine environment and type of scaling that the version
-   * resource uses:Standard environment instance_class
-   * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.ser
-   * vices.versions#Version.FIELDS.instance_class)automatic scaling in the
-   * standard environment: automatic_scaling.min_idle_instances
-   * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.ser
-   * vices.versions#Version.FIELDS.automatic_scaling)
-   * automatic_scaling.max_idle_instances (https://cloud.google.com/appengine/docs
-   * /admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_
-   * scaling) automaticScaling.standard_scheduler_settings.max_instances
-   * (https://cloud.google.com/appengine/docs/admin-
-   * api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
-   * automaticScaling.standard_scheduler_settings.min_instances
-   * (https://cloud.google.com/appengine/docs/admin-
-   * api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
-   * automaticScaling.standard_scheduler_settings.target_cpu_utilization
-   * (https://cloud.google.com/appengine/docs/admin-
-   * api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
-   * automaticScaling.standard_scheduler_settings.target_throughput_utilization
-   * (https://cloud.google.com/appengine/docs/admin-
-   * api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)basic
-   * scaling or manual scaling in the standard environment: serving_status
-   * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.ser
-   * vices.versions#Version.FIELDS.serving_status)Flexible environment
-   * serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/r
-   * est/v1/apps.services.versions#Version.FIELDS.serving_status)automatic scaling
-   * in the flexible environment: automatic_scaling.min_total_instances
-   * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.ser
-   * vices.versions#Version.FIELDS.automatic_scaling)
-   * automatic_scaling.max_total_instances
-   * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.ser
-   * vices.versions#Version.FIELDS.automatic_scaling)
-   * automatic_scaling.cool_down_period_sec
-   * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.ser
-   * vices.versions#Version.FIELDS.automatic_scaling)
-   * automatic_scaling.cpu_utilization.target_utilization
-   * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.ser
-   * vices.versions#Version.FIELDS.automatic_scaling) (versions.patch)
+   * resource uses: serving_status (https://cloud.google.com/appengine/docs/admin-
+   * api/reference/rest/v1beta5/apps.services.versions#Version.FIELDS.serving_stat
+   * us):  For Version resources that use basic scaling, manual scaling, or run in
+   * the App Engine flexible environment. instance_class
+   * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1beta5/app
+   * s.services.versions#Version.FIELDS.instance_class):  For Version resources
+   * that run in the App Engine standard environment.
+   * automatic_scaling.min_idle_instances (https://cloud.google.com/appengine/docs
+   * /admin-api/reference/rest/v1beta5/apps.services.versions#Version.FIELDS.autom
+   * atic_scaling):  For Version resources that use automatic scaling and run in
+   * the App  Engine standard environment. automatic_scaling.max_idle_instances
+   * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1beta5/app
+   * s.services.versions#Version.FIELDS.automatic_scaling):  For Version resources
+   * that use automatic scaling and run in the App  Engine standard environment.
+   * (versions.patch)
    *
    * @param string $appsId Part of `name`. Name of the resource to update.
    * Example: apps/myapp/services/default/versions/1.
@@ -147,7 +125,7 @@ class Google_Service_Appengine_Resource_AppsServicesVersions extends Google_Serv
    * @param Google_Service_Appengine_Version $postBody
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string updateMask Standard field mask for the set of fields to be
+   * @opt_param string mask Standard field mask for the set of fields to be
    * updated.
    * @return Google_Service_Appengine_Operation
    */

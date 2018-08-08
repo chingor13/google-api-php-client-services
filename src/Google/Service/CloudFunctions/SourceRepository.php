@@ -17,23 +17,59 @@
 
 class Google_Service_CloudFunctions_SourceRepository extends Google_Model
 {
-  public $deployedUrl;
-  public $url;
+  public $branch;
+  public $deployedRevision;
+  public $repositoryUrl;
+  public $revision;
+  public $sourcePath;
+  public $tag;
 
-  public function setDeployedUrl($deployedUrl)
+  public function setBranch($branch)
   {
-    $this->deployedUrl = $deployedUrl;
+    $this->branch = $branch;
   }
-  public function getDeployedUrl()
+  public function getBranch()
   {
-    return $this->deployedUrl;
+    return $this->branch;
   }
-  public function setUrl($url)
+  public function setDeployedRevision($deployedRevision)
   {
-    $this->url = $url;
+    $this->deployedRevision = $deployedRevision;
   }
-  public function getUrl()
+  public function getDeployedRevision()
   {
-    return $this->url;
+    return $this->deployedRevision;
+  }
+  public function setRepositoryUrl($repositoryUrl)
+  {
+    $this->repositoryUrl = $repositoryUrl;
+  }
+  public function getRepositoryUrl()
+  {
+    return $this->repositoryUrl;
+  }
+  public function setRevision($revision)
+  {
+    $this->revision = $revision;
+  }
+  public function getRevision()
+  {
+    return $this->revision;
+  }
+  public function setSourcePath($sourcePath)
+  {
+    $this->sourcePath = $sourcePath;
+  }
+  public function getSourcePath()
+  {
+    return $this->sourcePath;
+  }
+  public function setTag($tag)
+  {
+    $this->tag = $tag;
+  }
+  public function getTag()
+  {
+    return $this->tag;
   }
 }

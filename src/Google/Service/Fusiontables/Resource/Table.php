@@ -44,7 +44,7 @@ class Google_Service_Fusiontables_Resource_Table extends Google_Service_Resource
   /**
    * Deletes a table. (table.delete)
    *
-   * @param string $tableId ID of the table to be deleted.
+   * @param string $tableId ID of the table that is being deleted.
    * @param array $optParams Optional parameters.
    */
   public function delete($tableId, $optParams = array())
@@ -54,9 +54,9 @@ class Google_Service_Fusiontables_Resource_Table extends Google_Service_Resource
     return $this->call('delete', array($params));
   }
   /**
-   * Retrieves a specific table by its ID. (table.get)
+   * Retrieves a specific table by its id. (table.get)
    *
-   * @param string $tableId Identifier for the table being requested.
+   * @param string $tableId Identifier(ID) for the table being requested.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Fusiontables_Table
    */
@@ -67,22 +67,26 @@ class Google_Service_Fusiontables_Resource_Table extends Google_Service_Resource
     return $this->call('get', array($params), "Google_Service_Fusiontables_Table");
   }
   /**
-   * Imports more rows into a table. (table.importRows)
+   * Import more rows into a table. (table.importRows)
    *
    * @param string $tableId The table into which new rows are being imported.
    * @param array $optParams Optional parameters.
    *
    * @opt_param string delimiter The delimiter used to separate cell values. This
-   * can only consist of a single character. Default is ,.
+   * can only consist of a single character. Default is ','.
    * @opt_param string encoding The encoding of the content. Default is UTF-8. Use
-   * auto-detect if you are unsure of the encoding.
-   * @opt_param int endLine The index of the line up to which data will be
-   * imported. Default is to import the entire file. If endLine is negative, it is
-   * an offset from the end of the file; the imported content will exclude the
-   * last endLine lines.
-   * @opt_param bool isStrict Whether the imported CSV must have the same number
-   * of values for each row. If false, rows with fewer values will be padded with
-   * empty values. Default is true.
+   * 'auto-detect' if you are unsure of the encoding.
+   * @opt_param int endLine The index of the last line from which to start
+   * importing, exclusive. Thus, the number of imported lines is endLine -
+   * startLine. If this parameter is not provided, the file will be imported until
+   * the last line of the file. If endLine is negative, then the imported content
+   * will exclude the last endLine lines. That is, if endline is negative, no line
+   * will be imported whose index is greater than N + endLine where N is the
+   * number of lines in the file, and the number of imported lines will be N +
+   * endLine - startLine.
+   * @opt_param bool isStrict Whether the CSV must have the same number of values
+   * for each row. If false, rows with fewer values will be padded with empty
+   * values. Default is true.
    * @opt_param int startLine The index of the first line from which to start
    * importing, inclusive. Default is 0.
    * @return Google_Service_Fusiontables_Import
@@ -94,15 +98,15 @@ class Google_Service_Fusiontables_Resource_Table extends Google_Service_Resource
     return $this->call('importRows', array($params), "Google_Service_Fusiontables_Import");
   }
   /**
-   * Imports a new table. (table.importTable)
+   * Import a new table. (table.importTable)
    *
    * @param string $name The name to be assigned to the new table.
    * @param array $optParams Optional parameters.
    *
    * @opt_param string delimiter The delimiter used to separate cell values. This
-   * can only consist of a single character. Default is ,.
+   * can only consist of a single character. Default is ','.
    * @opt_param string encoding The encoding of the content. Default is UTF-8. Use
-   * auto-detect if you are unsure of the encoding.
+   * 'auto-detect' if you are unsure of the encoding.
    * @return Google_Service_Fusiontables_Table
    */
   public function importTable($name, $optParams = array())
@@ -129,10 +133,10 @@ class Google_Service_Fusiontables_Resource_Table extends Google_Service_Resource
    *
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string maxResults Maximum number of tables to return. Default is
-   * 5.
+   * @opt_param string maxResults Maximum number of styles to return. Optional.
+   * Default is 5.
    * @opt_param string pageToken Continuation token specifying which result page
-   * to return.
+   * to return. Optional.
    * @return Google_Service_Fusiontables_TableList
    */
   public function listTable($optParams = array())
@@ -150,8 +154,8 @@ class Google_Service_Fusiontables_Resource_Table extends Google_Service_Resource
    * @param Google_Service_Fusiontables_Table $postBody
    * @param array $optParams Optional parameters.
    *
-   * @opt_param bool replaceViewDefinition Whether the view definition is also
-   * updated. The specified view definition replaces the existing one. Only a view
+   * @opt_param bool replaceViewDefinition Should the view definition also be
+   * updated? The specified view definition replaces the existing one. Only a view
    * can be updated with a new definition.
    * @return Google_Service_Fusiontables_Table
    */
@@ -162,51 +166,6 @@ class Google_Service_Fusiontables_Resource_Table extends Google_Service_Resource
     return $this->call('patch', array($params), "Google_Service_Fusiontables_Table");
   }
   /**
-   * Replaces rows of the table with the rows of the spreadsheet that is first
-   * imported from. Current rows remain visible until all replacement rows are
-   * ready. (table.refetchSheet)
-   *
-   * @param string $tableId Table whose rows will be replaced from the
-   * spreadsheet.
-   * @param array $optParams Optional parameters.
-   * @return Google_Service_Fusiontables_Task
-   */
-  public function refetchSheet($tableId, $optParams = array())
-  {
-    $params = array('tableId' => $tableId);
-    $params = array_merge($params, $optParams);
-    return $this->call('refetchSheet', array($params), "Google_Service_Fusiontables_Task");
-  }
-  /**
-   * Replaces rows of an existing table. Current rows remain visible until all
-   * replacement rows are ready. (table.replaceRows)
-   *
-   * @param string $tableId Table whose rows will be replaced.
-   * @param array $optParams Optional parameters.
-   *
-   * @opt_param string delimiter The delimiter used to separate cell values. This
-   * can only consist of a single character. Default is ,.
-   * @opt_param string encoding The encoding of the content. Default is UTF-8. Use
-   * 'auto-detect' if you are unsure of the encoding.
-   * @opt_param int endLine The index of the line up to which data will be
-   * imported. Default is to import the entire file. If endLine is negative, it is
-   * an offset from the end of the file; the imported content will exclude the
-   * last endLine lines.
-   * @opt_param bool isStrict Whether the imported CSV must have the same number
-   * of column values for each row. If true, throws an exception if the CSV does
-   * not have the same number of columns. If false, rows with fewer column values
-   * will be padded with empty values. Default is true.
-   * @opt_param int startLine The index of the first line from which to start
-   * importing, inclusive. Default is 0.
-   * @return Google_Service_Fusiontables_Task
-   */
-  public function replaceRows($tableId, $optParams = array())
-  {
-    $params = array('tableId' => $tableId);
-    $params = array_merge($params, $optParams);
-    return $this->call('replaceRows', array($params), "Google_Service_Fusiontables_Task");
-  }
-  /**
    * Updates an existing table. Unless explicitly requested, only the name,
    * description, and attribution will be updated. (table.update)
    *
@@ -214,8 +173,8 @@ class Google_Service_Fusiontables_Resource_Table extends Google_Service_Resource
    * @param Google_Service_Fusiontables_Table $postBody
    * @param array $optParams Optional parameters.
    *
-   * @opt_param bool replaceViewDefinition Whether the view definition is also
-   * updated. The specified view definition replaces the existing one. Only a view
+   * @opt_param bool replaceViewDefinition Should the view definition also be
+   * updated? The specified view definition replaces the existing one. Only a view
    * can be updated with a new definition.
    * @return Google_Service_Fusiontables_Table
    */
