@@ -17,15 +17,24 @@
 
 class Google_Service_Pubsub_AcknowledgeRequest extends Google_Collection
 {
-  protected $collection_key = 'ackIds';
-  public $ackIds;
+  protected $collection_key = 'ackId';
+  public $ackId;
+  public $subscription;
 
-  public function setAckIds($ackIds)
+  public function setAckId($ackId)
   {
-    $this->ackIds = $ackIds;
+    $this->ackId = $ackId;
   }
-  public function getAckIds()
+  public function getAckId()
   {
-    return $this->ackIds;
+    return $this->ackId;
+  }
+  public function setSubscription($subscription)
+  {
+    $this->subscription = $subscription;
+  }
+  public function getSubscription()
+  {
+    return $this->subscription;
   }
 }

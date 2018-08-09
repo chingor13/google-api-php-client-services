@@ -27,8 +27,6 @@ class Google_Service_Storage_ObjectAccessControl extends Google_Model
   public $id;
   public $kind;
   public $object;
-  protected $projectTeamType = 'Google_Service_Storage_ObjectAccessControlProjectTeam';
-  protected $projectTeamDataType = '';
   public $role;
   public $selfLink;
 
@@ -111,20 +109,6 @@ class Google_Service_Storage_ObjectAccessControl extends Google_Model
   public function getObject()
   {
     return $this->object;
-  }
-  /**
-   * @param Google_Service_Storage_ObjectAccessControlProjectTeam
-   */
-  public function setProjectTeam(Google_Service_Storage_ObjectAccessControlProjectTeam $projectTeam)
-  {
-    $this->projectTeam = $projectTeam;
-  }
-  /**
-   * @return Google_Service_Storage_ObjectAccessControlProjectTeam
-   */
-  public function getProjectTeam()
-  {
-    return $this->projectTeam;
   }
   public function setRole($role)
   {

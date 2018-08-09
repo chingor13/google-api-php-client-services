@@ -16,7 +16,7 @@
  */
 
 /**
- * Service definition for CloudNaturalLanguage (v1).
+ * Service definition for CloudNaturalLanguage (v1beta2).
  *
  * <p>
  * Provides natural language understanding technologies to developers. Examples
@@ -51,7 +51,7 @@ class Google_Service_CloudNaturalLanguage extends Google_Service
     parent::__construct($client);
     $this->rootUrl = 'https://language.googleapis.com/';
     $this->servicePath = '';
-    $this->version = 'v1';
+    $this->version = 'v1beta2';
     $this->serviceName = 'language';
 
     $this->documents = new Google_Service_CloudNaturalLanguage_Resource_Documents(
@@ -61,27 +61,27 @@ class Google_Service_CloudNaturalLanguage extends Google_Service
         array(
           'methods' => array(
             'analyzeEntities' => array(
-              'path' => 'v1/documents:analyzeEntities',
+              'path' => 'v1beta2/documents:analyzeEntities',
               'httpMethod' => 'POST',
               'parameters' => array(),
             ),'analyzeEntitySentiment' => array(
-              'path' => 'v1/documents:analyzeEntitySentiment',
+              'path' => 'v1beta2/documents:analyzeEntitySentiment',
               'httpMethod' => 'POST',
               'parameters' => array(),
             ),'analyzeSentiment' => array(
-              'path' => 'v1/documents:analyzeSentiment',
+              'path' => 'v1beta2/documents:analyzeSentiment',
               'httpMethod' => 'POST',
               'parameters' => array(),
             ),'analyzeSyntax' => array(
-              'path' => 'v1/documents:analyzeSyntax',
+              'path' => 'v1beta2/documents:analyzeSyntax',
               'httpMethod' => 'POST',
               'parameters' => array(),
             ),'annotateText' => array(
-              'path' => 'v1/documents:annotateText',
+              'path' => 'v1beta2/documents:annotateText',
               'httpMethod' => 'POST',
               'parameters' => array(),
             ),'classifyText' => array(
-              'path' => 'v1/documents:classifyText',
+              'path' => 'v1beta2/documents:classifyText',
               'httpMethod' => 'POST',
               'parameters' => array(),
             ),

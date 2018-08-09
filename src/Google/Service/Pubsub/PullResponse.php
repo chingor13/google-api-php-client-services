@@ -15,24 +15,32 @@
  * the License.
  */
 
-class Google_Service_Pubsub_PullResponse extends Google_Collection
+class Google_Service_Pubsub_PullResponse extends Google_Model
 {
-  protected $collection_key = 'receivedMessages';
-  protected $receivedMessagesType = 'Google_Service_Pubsub_ReceivedMessage';
-  protected $receivedMessagesDataType = 'array';
+  public $ackId;
+  protected $pubsubEventType = 'Google_Service_Pubsub_PubsubEvent';
+  protected $pubsubEventDataType = '';
 
-  /**
-   * @param Google_Service_Pubsub_ReceivedMessage
-   */
-  public function setReceivedMessages($receivedMessages)
+  public function setAckId($ackId)
   {
-    $this->receivedMessages = $receivedMessages;
+    $this->ackId = $ackId;
+  }
+  public function getAckId()
+  {
+    return $this->ackId;
   }
   /**
-   * @return Google_Service_Pubsub_ReceivedMessage
+   * @param Google_Service_Pubsub_PubsubEvent
    */
-  public function getReceivedMessages()
+  public function setPubsubEvent(Google_Service_Pubsub_PubsubEvent $pubsubEvent)
   {
-    return $this->receivedMessages;
+    $this->pubsubEvent = $pubsubEvent;
+  }
+  /**
+   * @return Google_Service_Pubsub_PubsubEvent
+   */
+  public function getPubsubEvent()
+  {
+    return $this->pubsubEvent;
   }
 }

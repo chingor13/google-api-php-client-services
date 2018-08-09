@@ -16,7 +16,7 @@
  */
 
 /**
- * Service definition for CloudResourceManager (v2).
+ * Service definition for CloudResourceManager (v2beta1).
  *
  * <p>
  * The Google Cloud Resource Manager API provides methods for creating, reading,
@@ -51,7 +51,7 @@ class Google_Service_CloudResourceManager extends Google_Service
     parent::__construct($client);
     $this->rootUrl = 'https://cloudresourcemanager.googleapis.com/';
     $this->servicePath = '';
-    $this->version = 'v2';
+    $this->version = 'v2beta1';
     $this->serviceName = 'cloudresourcemanager';
 
     $this->folders = new Google_Service_CloudResourceManager_Resource_Folders(
@@ -103,6 +103,10 @@ class Google_Service_CloudResourceManager extends Google_Service
               'path' => 'v2/folders',
               'httpMethod' => 'GET',
               'parameters' => array(
+                'parent' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
                 'showDeleted' => array(
                   'location' => 'query',
                   'type' => 'boolean',
@@ -114,10 +118,6 @@ class Google_Service_CloudResourceManager extends Google_Service
                 'pageSize' => array(
                   'location' => 'query',
                   'type' => 'integer',
-                ),
-                'parent' => array(
-                  'location' => 'query',
-                  'type' => 'string',
                 ),
               ),
             ),'move' => array(
