@@ -39,23 +39,4 @@ class Google_Service_AdExchangeSeller_Resource_Accounts extends Google_Service_R
     $params = array_merge($params, $optParams);
     return $this->call('get', array($params), "Google_Service_AdExchangeSeller_Account");
   }
-  /**
-   * List all accounts available to this Ad Exchange account.
-   * (accounts.listAccounts)
-   *
-   * @param array $optParams Optional parameters.
-   *
-   * @opt_param int maxResults The maximum number of accounts to include in the
-   * response, used for paging.
-   * @opt_param string pageToken A continuation token, used to page through
-   * accounts. To retrieve the next page, set this parameter to the value of
-   * "nextPageToken" from the previous response.
-   * @return Google_Service_AdExchangeSeller_Accounts
-   */
-  public function listAccounts($optParams = array())
-  {
-    $params = array();
-    $params = array_merge($params, $optParams);
-    return $this->call('list', array($params), "Google_Service_AdExchangeSeller_Accounts");
-  }
 }

@@ -15,21 +15,15 @@
  * the License.
  */
 
-class Google_Service_Pubsub_PubsubMessage extends Google_Model
+class Google_Service_Pubsub_PubsubMessage extends Google_Collection
 {
-  public $attributes;
+  protected $collection_key = 'label';
   public $data;
+  protected $labelType = 'Google_Service_Pubsub_Label';
+  protected $labelDataType = 'array';
   public $messageId;
   public $publishTime;
 
-  public function setAttributes($attributes)
-  {
-    $this->attributes = $attributes;
-  }
-  public function getAttributes()
-  {
-    return $this->attributes;
-  }
   public function setData($data)
   {
     $this->data = $data;
@@ -37,6 +31,20 @@ class Google_Service_Pubsub_PubsubMessage extends Google_Model
   public function getData()
   {
     return $this->data;
+  }
+  /**
+   * @param Google_Service_Pubsub_Label
+   */
+  public function setLabel($label)
+  {
+    $this->label = $label;
+  }
+  /**
+   * @return Google_Service_Pubsub_Label
+   */
+  public function getLabel()
+  {
+    return $this->label;
   }
   public function setMessageId($messageId)
   {

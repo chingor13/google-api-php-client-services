@@ -33,6 +33,9 @@ class Google_Service_CloudOSLogin_Resource_UsersProjects extends Google_Service_
    * reference to the POSIX account is in format
    * `users/{user}/projects/{project}`.
    * @param array $optParams Optional parameters.
+   *
+   * @opt_param string operatingSystemType The type of operating system associated
+   * with the account.
    * @return Google_Service_CloudOSLogin_OsloginEmpty
    */
   public function delete($name, $optParams = array())
