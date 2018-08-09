@@ -16,10 +16,10 @@
  */
 
 /**
- * Service definition for Storage (v1).
+ * Service definition for Storage (v1beta2).
  *
  * <p>
- * Stores and retrieves potentially large, immutable data objects.</p>
+ * Lets you store and retrieve potentially-large, immutable data objects.</p>
  *
  * <p>
  * For more information about this service, see the API
@@ -30,12 +30,6 @@
  */
 class Google_Service_Storage extends Google_Service
 {
-  /** View and manage your data across Google Cloud Platform services. */
-  const CLOUD_PLATFORM =
-      "https://www.googleapis.com/auth/cloud-platform";
-  /** View your data across Google Cloud Platform services. */
-  const CLOUD_PLATFORM_READ_ONLY =
-      "https://www.googleapis.com/auth/cloud-platform.read-only";
   /** Manage your data and permissions in Google Cloud Storage. */
   const DEVSTORAGE_FULL_CONTROL =
       "https://www.googleapis.com/auth/devstorage.full_control";
@@ -50,10 +44,8 @@ class Google_Service_Storage extends Google_Service
   public $buckets;
   public $channels;
   public $defaultObjectAccessControls;
-  public $notifications;
   public $objectAccessControls;
   public $objects;
-  public $projects_serviceAccount;
   
   /**
    * Constructs the internal representation of the Storage service.
@@ -64,8 +56,8 @@ class Google_Service_Storage extends Google_Service
   {
     parent::__construct($client);
     $this->rootUrl = 'https://www.googleapis.com/';
-    $this->servicePath = 'storage/v1/';
-    $this->version = 'v1';
+    $this->servicePath = 'storage/v1beta2/';
+    $this->version = 'v1beta2';
     $this->serviceName = 'storage';
 
     $this->bucketAccessControls = new Google_Service_Storage_Resource_BucketAccessControls(
@@ -88,10 +80,6 @@ class Google_Service_Storage extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'userProject' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
               ),
             ),'get' => array(
               'path' => 'b/{bucket}/acl/{entity}',
@@ -107,10 +95,6 @@ class Google_Service_Storage extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'userProject' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
               ),
             ),'insert' => array(
               'path' => 'b/{bucket}/acl',
@@ -121,10 +105,6 @@ class Google_Service_Storage extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'userProject' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
               ),
             ),'list' => array(
               'path' => 'b/{bucket}/acl',
@@ -134,10 +114,6 @@ class Google_Service_Storage extends Google_Service
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
-                ),
-                'userProject' => array(
-                  'location' => 'query',
-                  'type' => 'string',
                 ),
               ),
             ),'patch' => array(
@@ -154,10 +130,6 @@ class Google_Service_Storage extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'userProject' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
               ),
             ),'update' => array(
               'path' => 'b/{bucket}/acl/{entity}',
@@ -172,10 +144,6 @@ class Google_Service_Storage extends Google_Service
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
-                ),
-                'userProject' => array(
-                  'location' => 'query',
-                  'type' => 'string',
                 ),
               ),
             ),
@@ -205,10 +173,6 @@ class Google_Service_Storage extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'userProject' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
               ),
             ),'get' => array(
               'path' => 'b/{bucket}',
@@ -231,24 +195,6 @@ class Google_Service_Storage extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'userProject' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-              ),
-            ),'getIamPolicy' => array(
-              'path' => 'b/{bucket}/iam',
-              'httpMethod' => 'GET',
-              'parameters' => array(
-                'bucket' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'userProject' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
               ),
             ),'insert' => array(
               'path' => 'b',
@@ -259,19 +205,7 @@ class Google_Service_Storage extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'predefinedAcl' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'predefinedDefaultObjectAcl' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'projection' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'userProject' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -293,34 +227,7 @@ class Google_Service_Storage extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'prefix' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'projection' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'userProject' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-              ),
-            ),'lockRetentionPolicy' => array(
-              'path' => 'b/{bucket}/lockRetentionPolicy',
-              'httpMethod' => 'POST',
-              'parameters' => array(
-                'bucket' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'ifMetagenerationMatch' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'userProject' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -342,53 +249,7 @@ class Google_Service_Storage extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'predefinedAcl' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'predefinedDefaultObjectAcl' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'projection' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'userProject' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-              ),
-            ),'setIamPolicy' => array(
-              'path' => 'b/{bucket}/iam',
-              'httpMethod' => 'PUT',
-              'parameters' => array(
-                'bucket' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'userProject' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-              ),
-            ),'testIamPermissions' => array(
-              'path' => 'b/{bucket}/iam/testPermissions',
-              'httpMethod' => 'GET',
-              'parameters' => array(
-                'bucket' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'permissions' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'repeated' => true,
-                  'required' => true,
-                ),
-                'userProject' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -410,19 +271,7 @@ class Google_Service_Storage extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'predefinedAcl' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'predefinedDefaultObjectAcl' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'projection' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'userProject' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -465,10 +314,6 @@ class Google_Service_Storage extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'userProject' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
               ),
             ),'get' => array(
               'path' => 'b/{bucket}/defaultObjectAcl/{entity}',
@@ -484,10 +329,6 @@ class Google_Service_Storage extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'userProject' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
               ),
             ),'insert' => array(
               'path' => 'b/{bucket}/defaultObjectAcl',
@@ -497,10 +338,6 @@ class Google_Service_Storage extends Google_Service
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
-                ),
-                'userProject' => array(
-                  'location' => 'query',
-                  'type' => 'string',
                 ),
               ),
             ),'list' => array(
@@ -520,10 +357,6 @@ class Google_Service_Storage extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'userProject' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
               ),
             ),'patch' => array(
               'path' => 'b/{bucket}/defaultObjectAcl/{entity}',
@@ -539,10 +372,6 @@ class Google_Service_Storage extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'userProject' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
               ),
             ),'update' => array(
               'path' => 'b/{bucket}/defaultObjectAcl/{entity}',
@@ -557,86 +386,6 @@ class Google_Service_Storage extends Google_Service
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
-                ),
-                'userProject' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-              ),
-            ),
-          )
-        )
-    );
-    $this->notifications = new Google_Service_Storage_Resource_Notifications(
-        $this,
-        $this->serviceName,
-        'notifications',
-        array(
-          'methods' => array(
-            'delete' => array(
-              'path' => 'b/{bucket}/notificationConfigs/{notification}',
-              'httpMethod' => 'DELETE',
-              'parameters' => array(
-                'bucket' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'notification' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'userProject' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-              ),
-            ),'get' => array(
-              'path' => 'b/{bucket}/notificationConfigs/{notification}',
-              'httpMethod' => 'GET',
-              'parameters' => array(
-                'bucket' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'notification' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'userProject' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-              ),
-            ),'insert' => array(
-              'path' => 'b/{bucket}/notificationConfigs',
-              'httpMethod' => 'POST',
-              'parameters' => array(
-                'bucket' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'userProject' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-              ),
-            ),'list' => array(
-              'path' => 'b/{bucket}/notificationConfigs',
-              'httpMethod' => 'GET',
-              'parameters' => array(
-                'bucket' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'userProject' => array(
-                  'location' => 'query',
-                  'type' => 'string',
                 ),
               ),
             ),
@@ -672,10 +421,6 @@ class Google_Service_Storage extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'userProject' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
               ),
             ),'get' => array(
               'path' => 'b/{bucket}/o/{object}/acl/{entity}',
@@ -700,10 +445,6 @@ class Google_Service_Storage extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'userProject' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
               ),
             ),'insert' => array(
               'path' => 'b/{bucket}/o/{object}/acl',
@@ -723,10 +464,6 @@ class Google_Service_Storage extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'userProject' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
               ),
             ),'list' => array(
               'path' => 'b/{bucket}/o/{object}/acl',
@@ -743,10 +480,6 @@ class Google_Service_Storage extends Google_Service
                   'required' => true,
                 ),
                 'generation' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'userProject' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -774,10 +507,6 @@ class Google_Service_Storage extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'userProject' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
               ),
             ),'update' => array(
               'path' => 'b/{bucket}/o/{object}/acl/{entity}',
@@ -799,10 +528,6 @@ class Google_Service_Storage extends Google_Service
                   'required' => true,
                 ),
                 'generation' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'userProject' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -831,23 +556,11 @@ class Google_Service_Storage extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'destinationPredefinedAcl' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'ifGenerationMatch' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
                 'ifMetagenerationMatch' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'kmsKeyName' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'userProject' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -875,10 +588,6 @@ class Google_Service_Storage extends Google_Service
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
-                ),
-                'destinationPredefinedAcl' => array(
-                  'location' => 'query',
-                  'type' => 'string',
                 ),
                 'ifGenerationMatch' => array(
                   'location' => 'query',
@@ -917,10 +626,6 @@ class Google_Service_Storage extends Google_Service
                   'type' => 'string',
                 ),
                 'sourceGeneration' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'userProject' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -959,10 +664,6 @@ class Google_Service_Storage extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'userProject' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
               ),
             ),'get' => array(
               'path' => 'b/{bucket}/o/{object}',
@@ -1002,33 +703,6 @@ class Google_Service_Storage extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'userProject' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-              ),
-            ),'getIamPolicy' => array(
-              'path' => 'b/{bucket}/o/{object}/iam',
-              'httpMethod' => 'GET',
-              'parameters' => array(
-                'bucket' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'object' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'generation' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'userProject' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
               ),
             ),'insert' => array(
               'path' => 'b/{bucket}/o',
@@ -1038,10 +712,6 @@ class Google_Service_Storage extends Google_Service
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
-                ),
-                'contentEncoding' => array(
-                  'location' => 'query',
-                  'type' => 'string',
                 ),
                 'ifGenerationMatch' => array(
                   'location' => 'query',
@@ -1059,23 +729,11 @@ class Google_Service_Storage extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'kmsKeyName' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'name' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'predefinedAcl' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'projection' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'userProject' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -1093,10 +751,6 @@ class Google_Service_Storage extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'includeTrailingDelimiter' => array(
-                  'location' => 'query',
-                  'type' => 'boolean',
-                ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
@@ -1110,10 +764,6 @@ class Google_Service_Storage extends Google_Service
                   'type' => 'string',
                 ),
                 'projection' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'userProject' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -1156,152 +806,7 @@ class Google_Service_Storage extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'predefinedAcl' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'projection' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'userProject' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-              ),
-            ),'rewrite' => array(
-              'path' => 'b/{sourceBucket}/o/{sourceObject}/rewriteTo/b/{destinationBucket}/o/{destinationObject}',
-              'httpMethod' => 'POST',
-              'parameters' => array(
-                'sourceBucket' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'sourceObject' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'destinationBucket' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'destinationObject' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'destinationKmsKeyName' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'destinationPredefinedAcl' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'ifGenerationMatch' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'ifGenerationNotMatch' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'ifMetagenerationMatch' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'ifMetagenerationNotMatch' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'ifSourceGenerationMatch' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'ifSourceGenerationNotMatch' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'ifSourceMetagenerationMatch' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'ifSourceMetagenerationNotMatch' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'maxBytesRewrittenPerCall' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'projection' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'rewriteToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'sourceGeneration' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'userProject' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-              ),
-            ),'setIamPolicy' => array(
-              'path' => 'b/{bucket}/o/{object}/iam',
-              'httpMethod' => 'PUT',
-              'parameters' => array(
-                'bucket' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'object' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'generation' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'userProject' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-              ),
-            ),'testIamPermissions' => array(
-              'path' => 'b/{bucket}/o/{object}/iam/testPermissions',
-              'httpMethod' => 'GET',
-              'parameters' => array(
-                'bucket' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'object' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'permissions' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'repeated' => true,
-                  'required' => true,
-                ),
-                'generation' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'userProject' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -1340,15 +845,7 @@ class Google_Service_Storage extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'predefinedAcl' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'projection' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'userProject' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -1366,10 +863,6 @@ class Google_Service_Storage extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'includeTrailingDelimiter' => array(
-                  'location' => 'query',
-                  'type' => 'boolean',
-                ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
@@ -1386,37 +879,9 @@ class Google_Service_Storage extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'userProject' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'versions' => array(
                   'location' => 'query',
                   'type' => 'boolean',
-                ),
-              ),
-            ),
-          )
-        )
-    );
-    $this->projects_serviceAccount = new Google_Service_Storage_Resource_ProjectsServiceAccount(
-        $this,
-        $this->serviceName,
-        'serviceAccount',
-        array(
-          'methods' => array(
-            'get' => array(
-              'path' => 'projects/{projectId}/serviceAccount',
-              'httpMethod' => 'GET',
-              'parameters' => array(
-                'projectId' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'userProject' => array(
-                  'location' => 'query',
-                  'type' => 'string',
                 ),
               ),
             ),

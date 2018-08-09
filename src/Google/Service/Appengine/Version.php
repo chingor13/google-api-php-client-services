@@ -17,7 +17,7 @@
 
 class Google_Service_Appengine_Version extends Google_Collection
 {
-  protected $collection_key = 'zones';
+  protected $collection_key = 'libraries';
   protected $apiConfigType = 'Google_Service_Appengine_ApiConfigHandler';
   protected $apiConfigDataType = '';
   protected $automaticScalingType = 'Google_Service_Appengine_AutomaticScaling';
@@ -25,16 +25,13 @@ class Google_Service_Appengine_Version extends Google_Collection
   protected $basicScalingType = 'Google_Service_Appengine_BasicScaling';
   protected $basicScalingDataType = '';
   public $betaSettings;
-  public $createTime;
-  public $createdBy;
+  public $creationTime;
   public $defaultExpiration;
+  public $deployer;
   protected $deploymentType = 'Google_Service_Appengine_Deployment';
   protected $deploymentDataType = '';
-  public $diskUsageBytes;
   protected $endpointsApiServiceType = 'Google_Service_Appengine_EndpointsApiService';
   protected $endpointsApiServiceDataType = '';
-  protected $entrypointType = 'Google_Service_Appengine_Entrypoint';
-  protected $entrypointDataType = '';
   public $env;
   public $envVariables;
   protected $errorHandlersType = 'Google_Service_Appengine_ErrorHandler';
@@ -48,26 +45,19 @@ class Google_Service_Appengine_Version extends Google_Collection
   public $instanceClass;
   protected $librariesType = 'Google_Service_Appengine_Library';
   protected $librariesDataType = 'array';
-  protected $livenessCheckType = 'Google_Service_Appengine_LivenessCheck';
-  protected $livenessCheckDataType = '';
   protected $manualScalingType = 'Google_Service_Appengine_ManualScaling';
   protected $manualScalingDataType = '';
   public $name;
   protected $networkType = 'Google_Service_Appengine_Network';
   protected $networkDataType = '';
   public $nobuildFilesRegex;
-  protected $readinessCheckType = 'Google_Service_Appengine_ReadinessCheck';
-  protected $readinessCheckDataType = '';
   protected $resourcesType = 'Google_Service_Appengine_Resources';
   protected $resourcesDataType = '';
   public $runtime;
   public $runtimeApiVersion;
-  public $runtimeChannel;
   public $servingStatus;
   public $threadsafe;
-  public $versionUrl;
   public $vm;
-  public $zones;
 
   /**
    * @param Google_Service_Appengine_ApiConfigHandler
@@ -119,21 +109,13 @@ class Google_Service_Appengine_Version extends Google_Collection
   {
     return $this->betaSettings;
   }
-  public function setCreateTime($createTime)
+  public function setCreationTime($creationTime)
   {
-    $this->createTime = $createTime;
+    $this->creationTime = $creationTime;
   }
-  public function getCreateTime()
+  public function getCreationTime()
   {
-    return $this->createTime;
-  }
-  public function setCreatedBy($createdBy)
-  {
-    $this->createdBy = $createdBy;
-  }
-  public function getCreatedBy()
-  {
-    return $this->createdBy;
+    return $this->creationTime;
   }
   public function setDefaultExpiration($defaultExpiration)
   {
@@ -142,6 +124,14 @@ class Google_Service_Appengine_Version extends Google_Collection
   public function getDefaultExpiration()
   {
     return $this->defaultExpiration;
+  }
+  public function setDeployer($deployer)
+  {
+    $this->deployer = $deployer;
+  }
+  public function getDeployer()
+  {
+    return $this->deployer;
   }
   /**
    * @param Google_Service_Appengine_Deployment
@@ -157,14 +147,6 @@ class Google_Service_Appengine_Version extends Google_Collection
   {
     return $this->deployment;
   }
-  public function setDiskUsageBytes($diskUsageBytes)
-  {
-    $this->diskUsageBytes = $diskUsageBytes;
-  }
-  public function getDiskUsageBytes()
-  {
-    return $this->diskUsageBytes;
-  }
   /**
    * @param Google_Service_Appengine_EndpointsApiService
    */
@@ -178,20 +160,6 @@ class Google_Service_Appengine_Version extends Google_Collection
   public function getEndpointsApiService()
   {
     return $this->endpointsApiService;
-  }
-  /**
-   * @param Google_Service_Appengine_Entrypoint
-   */
-  public function setEntrypoint(Google_Service_Appengine_Entrypoint $entrypoint)
-  {
-    $this->entrypoint = $entrypoint;
-  }
-  /**
-   * @return Google_Service_Appengine_Entrypoint
-   */
-  public function getEntrypoint()
-  {
-    return $this->entrypoint;
   }
   public function setEnv($env)
   {
@@ -290,20 +258,6 @@ class Google_Service_Appengine_Version extends Google_Collection
     return $this->libraries;
   }
   /**
-   * @param Google_Service_Appengine_LivenessCheck
-   */
-  public function setLivenessCheck(Google_Service_Appengine_LivenessCheck $livenessCheck)
-  {
-    $this->livenessCheck = $livenessCheck;
-  }
-  /**
-   * @return Google_Service_Appengine_LivenessCheck
-   */
-  public function getLivenessCheck()
-  {
-    return $this->livenessCheck;
-  }
-  /**
    * @param Google_Service_Appengine_ManualScaling
    */
   public function setManualScaling(Google_Service_Appengine_ManualScaling $manualScaling)
@@ -348,20 +302,6 @@ class Google_Service_Appengine_Version extends Google_Collection
     return $this->nobuildFilesRegex;
   }
   /**
-   * @param Google_Service_Appengine_ReadinessCheck
-   */
-  public function setReadinessCheck(Google_Service_Appengine_ReadinessCheck $readinessCheck)
-  {
-    $this->readinessCheck = $readinessCheck;
-  }
-  /**
-   * @return Google_Service_Appengine_ReadinessCheck
-   */
-  public function getReadinessCheck()
-  {
-    return $this->readinessCheck;
-  }
-  /**
    * @param Google_Service_Appengine_Resources
    */
   public function setResources(Google_Service_Appengine_Resources $resources)
@@ -391,14 +331,6 @@ class Google_Service_Appengine_Version extends Google_Collection
   {
     return $this->runtimeApiVersion;
   }
-  public function setRuntimeChannel($runtimeChannel)
-  {
-    $this->runtimeChannel = $runtimeChannel;
-  }
-  public function getRuntimeChannel()
-  {
-    return $this->runtimeChannel;
-  }
   public function setServingStatus($servingStatus)
   {
     $this->servingStatus = $servingStatus;
@@ -415,14 +347,6 @@ class Google_Service_Appengine_Version extends Google_Collection
   {
     return $this->threadsafe;
   }
-  public function setVersionUrl($versionUrl)
-  {
-    $this->versionUrl = $versionUrl;
-  }
-  public function getVersionUrl()
-  {
-    return $this->versionUrl;
-  }
   public function setVm($vm)
   {
     $this->vm = $vm;
@@ -430,13 +354,5 @@ class Google_Service_Appengine_Version extends Google_Collection
   public function getVm()
   {
     return $this->vm;
-  }
-  public function setZones($zones)
-  {
-    $this->zones = $zones;
-  }
-  public function getZones()
-  {
-    return $this->zones;
   }
 }

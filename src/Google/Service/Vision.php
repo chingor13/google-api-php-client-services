@@ -16,7 +16,7 @@
  */
 
 /**
- * Service definition for Vision (v1).
+ * Service definition for Vision (v1p1beta1).
  *
  * <p>
  * Integrates Google Vision features, including image labeling, face, logo, and
@@ -41,8 +41,6 @@ class Google_Service_Vision extends Google_Service
 
   public $files;
   public $images;
-  public $locations_operations;
-  public $operations;
   
   /**
    * Constructs the internal representation of the Vision service.
@@ -54,7 +52,7 @@ class Google_Service_Vision extends Google_Service
     parent::__construct($client);
     $this->rootUrl = 'https://vision.googleapis.com/';
     $this->servicePath = '';
-    $this->version = 'v1';
+    $this->version = 'v1p1beta1';
     $this->serviceName = 'vision';
 
     $this->files = new Google_Service_Vision_Resource_Files(
@@ -64,7 +62,7 @@ class Google_Service_Vision extends Google_Service
         array(
           'methods' => array(
             'asyncBatchAnnotate' => array(
-              'path' => 'v1/files:asyncBatchAnnotate',
+              'path' => 'v1p1beta1/files:asyncBatchAnnotate',
               'httpMethod' => 'POST',
               'parameters' => array(),
             ),
@@ -78,91 +76,9 @@ class Google_Service_Vision extends Google_Service
         array(
           'methods' => array(
             'annotate' => array(
-              'path' => 'v1/images:annotate',
+              'path' => 'v1p1beta1/images:annotate',
               'httpMethod' => 'POST',
               'parameters' => array(),
-            ),
-          )
-        )
-    );
-    $this->locations_operations = new Google_Service_Vision_Resource_LocationsOperations(
-        $this,
-        $this->serviceName,
-        'operations',
-        array(
-          'methods' => array(
-            'get' => array(
-              'path' => 'v1/{+name}',
-              'httpMethod' => 'GET',
-              'parameters' => array(
-                'name' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-              ),
-            ),
-          )
-        )
-    );
-    $this->operations = new Google_Service_Vision_Resource_Operations(
-        $this,
-        $this->serviceName,
-        'operations',
-        array(
-          'methods' => array(
-            'cancel' => array(
-              'path' => 'v1/{+name}:cancel',
-              'httpMethod' => 'POST',
-              'parameters' => array(
-                'name' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-              ),
-            ),'delete' => array(
-              'path' => 'v1/{+name}',
-              'httpMethod' => 'DELETE',
-              'parameters' => array(
-                'name' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-              ),
-            ),'get' => array(
-              'path' => 'v1/{+name}',
-              'httpMethod' => 'GET',
-              'parameters' => array(
-                'name' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-              ),
-            ),'list' => array(
-              'path' => 'v1/{+name}',
-              'httpMethod' => 'GET',
-              'parameters' => array(
-                'name' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'filter' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'pageSize' => array(
-                  'location' => 'query',
-                  'type' => 'integer',
-                ),
-              ),
             ),
           )
         )

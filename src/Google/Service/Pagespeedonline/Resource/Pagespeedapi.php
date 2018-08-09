@@ -26,8 +26,8 @@
 class Google_Service_Pagespeedonline_Resource_Pagespeedapi extends Google_Service_Resource
 {
   /**
-   * Runs PageSpeed analysis on the page at the specified URL, and returns
-   * PageSpeed scores, a list of suggestions to make that page faster, and other
+   * Runs PageSpeed analysis on the page at the specified URL, and returns a
+   * PageSpeed score, a list of suggestions to make that page faster, and other
    * information. (pagespeedapi.runpagespeed)
    *
    * @param string $url The URL to fetch and analyze
@@ -40,18 +40,13 @@ class Google_Service_Pagespeedonline_Resource_Pagespeedapi extends Google_Servic
    * are run
    * @opt_param bool screenshot Indicates if binary data containing a screenshot
    * should be included
-   * @opt_param bool snapshots Indicates if binary data containing snapshot images
-   * should be included
-   * @opt_param string strategy The analysis strategy (desktop or mobile) to use,
-   * and desktop is the default
-   * @opt_param string utm_campaign Campaign name for analytics.
-   * @opt_param string utm_source Campaign source for analytics.
-   * @return Google_Service_Pagespeedonline_PagespeedApiPagespeedResponseV4
+   * @opt_param string strategy The analysis strategy to use
+   * @return Google_Service_Pagespeedonline_Result
    */
   public function runpagespeed($url, $optParams = array())
   {
     $params = array('url' => $url);
     $params = array_merge($params, $optParams);
-    return $this->call('runpagespeed', array($params), "Google_Service_Pagespeedonline_PagespeedApiPagespeedResponseV4");
+    return $this->call('runpagespeed', array($params), "Google_Service_Pagespeedonline_Result");
   }
 }
