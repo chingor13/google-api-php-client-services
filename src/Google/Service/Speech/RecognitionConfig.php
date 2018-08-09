@@ -15,26 +15,16 @@
  * the License.
  */
 
-class Google_Service_Speech_RecognitionConfig extends Google_Collection
+class Google_Service_Speech_RecognitionConfig extends Google_Model
 {
-  protected $collection_key = 'speechContexts';
-  public $enableWordTimeOffsets;
   public $encoding;
   public $languageCode;
   public $maxAlternatives;
   public $profanityFilter;
-  public $sampleRateHertz;
-  protected $speechContextsType = 'Google_Service_Speech_SpeechContext';
-  protected $speechContextsDataType = 'array';
+  public $sampleRate;
+  protected $speechContextType = 'Google_Service_Speech_SpeechContext';
+  protected $speechContextDataType = '';
 
-  public function setEnableWordTimeOffsets($enableWordTimeOffsets)
-  {
-    $this->enableWordTimeOffsets = $enableWordTimeOffsets;
-  }
-  public function getEnableWordTimeOffsets()
-  {
-    return $this->enableWordTimeOffsets;
-  }
   public function setEncoding($encoding)
   {
     $this->encoding = $encoding;
@@ -67,26 +57,26 @@ class Google_Service_Speech_RecognitionConfig extends Google_Collection
   {
     return $this->profanityFilter;
   }
-  public function setSampleRateHertz($sampleRateHertz)
+  public function setSampleRate($sampleRate)
   {
-    $this->sampleRateHertz = $sampleRateHertz;
+    $this->sampleRate = $sampleRate;
   }
-  public function getSampleRateHertz()
+  public function getSampleRate()
   {
-    return $this->sampleRateHertz;
+    return $this->sampleRate;
   }
   /**
    * @param Google_Service_Speech_SpeechContext
    */
-  public function setSpeechContexts($speechContexts)
+  public function setSpeechContext(Google_Service_Speech_SpeechContext $speechContext)
   {
-    $this->speechContexts = $speechContexts;
+    $this->speechContext = $speechContext;
   }
   /**
    * @return Google_Service_Speech_SpeechContext
    */
-  public function getSpeechContexts()
+  public function getSpeechContext()
   {
-    return $this->speechContexts;
+    return $this->speechContext;
   }
 }

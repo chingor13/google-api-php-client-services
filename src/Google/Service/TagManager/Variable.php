@@ -28,13 +28,10 @@ class Google_Service_TagManager_Variable extends Google_Collection
   protected $parameterType = 'Google_Service_TagManager_Parameter';
   protected $parameterDataType = 'array';
   public $parentFolderId;
-  public $path;
   public $scheduleEndMs;
   public $scheduleStartMs;
-  public $tagManagerUrl;
   public $type;
   public $variableId;
-  public $workspaceId;
 
   public function setAccountId($accountId)
   {
@@ -114,14 +111,6 @@ class Google_Service_TagManager_Variable extends Google_Collection
   {
     return $this->parentFolderId;
   }
-  public function setPath($path)
-  {
-    $this->path = $path;
-  }
-  public function getPath()
-  {
-    return $this->path;
-  }
   public function setScheduleEndMs($scheduleEndMs)
   {
     $this->scheduleEndMs = $scheduleEndMs;
@@ -138,14 +127,6 @@ class Google_Service_TagManager_Variable extends Google_Collection
   {
     return $this->scheduleStartMs;
   }
-  public function setTagManagerUrl($tagManagerUrl)
-  {
-    $this->tagManagerUrl = $tagManagerUrl;
-  }
-  public function getTagManagerUrl()
-  {
-    return $this->tagManagerUrl;
-  }
   public function setType($type)
   {
     $this->type = $type;
@@ -161,13 +142,5 @@ class Google_Service_TagManager_Variable extends Google_Collection
   public function getVariableId()
   {
     return $this->variableId;
-  }
-  public function setWorkspaceId($workspaceId)
-  {
-    $this->workspaceId = $workspaceId;
-  }
-  public function getWorkspaceId()
-  {
-    return $this->workspaceId;
   }
 }

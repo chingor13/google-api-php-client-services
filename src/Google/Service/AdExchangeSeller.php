@@ -16,7 +16,7 @@
  */
 
 /**
- * Service definition for AdExchangeSeller (v2.0).
+ * Service definition for AdExchangeSeller (v1).
  *
  * <p>
  * Accesses the inventory of Ad Exchange seller users and generates reports.</p>
@@ -37,16 +37,14 @@ class Google_Service_AdExchangeSeller extends Google_Service
   const ADEXCHANGE_SELLER_READONLY =
       "https://www.googleapis.com/auth/adexchange.seller.readonly";
 
-  public $accounts;
-  public $accounts_adclients;
-  public $accounts_alerts;
-  public $accounts_customchannels;
-  public $accounts_metadata_dimensions;
-  public $accounts_metadata_metrics;
-  public $accounts_preferreddeals;
-  public $accounts_reports;
-  public $accounts_reports_saved;
-  public $accounts_urlchannels;
+  public $adclients;
+  public $adunits;
+  public $adunits_customchannels;
+  public $customchannels;
+  public $customchannels_adunits;
+  public $reports;
+  public $reports_saved;
+  public $urlchannels;
   
   /**
    * Constructs the internal representation of the AdExchangeSeller service.
@@ -57,54 +55,96 @@ class Google_Service_AdExchangeSeller extends Google_Service
   {
     parent::__construct($client);
     $this->rootUrl = 'https://www.googleapis.com/';
-    $this->servicePath = 'adexchangeseller/v2.0/';
-    $this->version = 'v2.0';
+    $this->servicePath = 'adexchangeseller/v1/';
+    $this->version = 'v1';
     $this->serviceName = 'adexchangeseller';
 
-    $this->accounts = new Google_Service_AdExchangeSeller_Resource_Accounts(
-        $this,
-        $this->serviceName,
-        'accounts',
-        array(
-          'methods' => array(
-            'get' => array(
-              'path' => 'accounts/{accountId}',
-              'httpMethod' => 'GET',
-              'parameters' => array(
-                'accountId' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-              ),
-            ),'list' => array(
-              'path' => 'accounts',
-              'httpMethod' => 'GET',
-              'parameters' => array(
-                'maxResults' => array(
-                  'location' => 'query',
-                  'type' => 'integer',
-                ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-              ),
-            ),
-          )
-        )
-    );
-    $this->accounts_adclients = new Google_Service_AdExchangeSeller_Resource_AccountsAdclients(
+    $this->adclients = new Google_Service_AdExchangeSeller_Resource_Adclients(
         $this,
         $this->serviceName,
         'adclients',
         array(
           'methods' => array(
             'list' => array(
-              'path' => 'accounts/{accountId}/adclients',
+              'path' => 'adclients',
               'httpMethod' => 'GET',
               'parameters' => array(
-                'accountId' => array(
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+              ),
+            ),
+          )
+        )
+    );
+    $this->adunits = new Google_Service_AdExchangeSeller_Resource_Adunits(
+        $this,
+        $this->serviceName,
+        'adunits',
+        array(
+          'methods' => array(
+            'get' => array(
+              'path' => 'adclients/{adClientId}/adunits/{adUnitId}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'adClientId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'adUnitId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'list' => array(
+              'path' => 'adclients/{adClientId}/adunits',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'adClientId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'includeInactive' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+              ),
+            ),
+          )
+        )
+    );
+    $this->adunits_customchannels = new Google_Service_AdExchangeSeller_Resource_AdunitsCustomchannels(
+        $this,
+        $this->serviceName,
+        'customchannels',
+        array(
+          'methods' => array(
+            'list' => array(
+              'path' => 'adclients/{adClientId}/adunits/{adUnitId}/customchannels',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'adClientId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'adUnitId' => array(
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
@@ -122,45 +162,16 @@ class Google_Service_AdExchangeSeller extends Google_Service
           )
         )
     );
-    $this->accounts_alerts = new Google_Service_AdExchangeSeller_Resource_AccountsAlerts(
-        $this,
-        $this->serviceName,
-        'alerts',
-        array(
-          'methods' => array(
-            'list' => array(
-              'path' => 'accounts/{accountId}/alerts',
-              'httpMethod' => 'GET',
-              'parameters' => array(
-                'accountId' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'locale' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-              ),
-            ),
-          )
-        )
-    );
-    $this->accounts_customchannels = new Google_Service_AdExchangeSeller_Resource_AccountsCustomchannels(
+    $this->customchannels = new Google_Service_AdExchangeSeller_Resource_Customchannels(
         $this,
         $this->serviceName,
         'customchannels',
         array(
           'methods' => array(
             'get' => array(
-              'path' => 'accounts/{accountId}/adclients/{adClientId}/customchannels/{customChannelId}',
+              'path' => 'adclients/{adClientId}/customchannels/{customChannelId}',
               'httpMethod' => 'GET',
               'parameters' => array(
-                'accountId' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
                 'adClientId' => array(
                   'location' => 'path',
                   'type' => 'string',
@@ -173,14 +184,9 @@ class Google_Service_AdExchangeSeller extends Google_Service
                 ),
               ),
             ),'list' => array(
-              'path' => 'accounts/{accountId}/adclients/{adClientId}/customchannels',
+              'path' => 'adclients/{adClientId}/customchannels',
               'httpMethod' => 'GET',
               'parameters' => array(
-                'accountId' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
                 'adClientId' => array(
                   'location' => 'path',
                   'type' => 'string',
@@ -199,96 +205,53 @@ class Google_Service_AdExchangeSeller extends Google_Service
           )
         )
     );
-    $this->accounts_metadata_dimensions = new Google_Service_AdExchangeSeller_Resource_AccountsMetadataDimensions(
+    $this->customchannels_adunits = new Google_Service_AdExchangeSeller_Resource_CustomchannelsAdunits(
         $this,
         $this->serviceName,
-        'dimensions',
+        'adunits',
         array(
           'methods' => array(
             'list' => array(
-              'path' => 'accounts/{accountId}/metadata/dimensions',
+              'path' => 'adclients/{adClientId}/customchannels/{customChannelId}/adunits',
               'httpMethod' => 'GET',
               'parameters' => array(
-                'accountId' => array(
+                'adClientId' => array(
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
+                ),
+                'customChannelId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'includeInactive' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),
           )
         )
     );
-    $this->accounts_metadata_metrics = new Google_Service_AdExchangeSeller_Resource_AccountsMetadataMetrics(
-        $this,
-        $this->serviceName,
-        'metrics',
-        array(
-          'methods' => array(
-            'list' => array(
-              'path' => 'accounts/{accountId}/metadata/metrics',
-              'httpMethod' => 'GET',
-              'parameters' => array(
-                'accountId' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-              ),
-            ),
-          )
-        )
-    );
-    $this->accounts_preferreddeals = new Google_Service_AdExchangeSeller_Resource_AccountsPreferreddeals(
-        $this,
-        $this->serviceName,
-        'preferreddeals',
-        array(
-          'methods' => array(
-            'get' => array(
-              'path' => 'accounts/{accountId}/preferreddeals/{dealId}',
-              'httpMethod' => 'GET',
-              'parameters' => array(
-                'accountId' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'dealId' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-              ),
-            ),'list' => array(
-              'path' => 'accounts/{accountId}/preferreddeals',
-              'httpMethod' => 'GET',
-              'parameters' => array(
-                'accountId' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-              ),
-            ),
-          )
-        )
-    );
-    $this->accounts_reports = new Google_Service_AdExchangeSeller_Resource_AccountsReports(
+    $this->reports = new Google_Service_AdExchangeSeller_Resource_Reports(
         $this,
         $this->serviceName,
         'reports',
         array(
           'methods' => array(
             'generate' => array(
-              'path' => 'accounts/{accountId}/reports',
+              'path' => 'reports',
               'httpMethod' => 'GET',
               'parameters' => array(
-                'accountId' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
                 'startDate' => array(
                   'location' => 'query',
                   'type' => 'string',
@@ -336,21 +299,16 @@ class Google_Service_AdExchangeSeller extends Google_Service
           )
         )
     );
-    $this->accounts_reports_saved = new Google_Service_AdExchangeSeller_Resource_AccountsReportsSaved(
+    $this->reports_saved = new Google_Service_AdExchangeSeller_Resource_ReportsSaved(
         $this,
         $this->serviceName,
         'saved',
         array(
           'methods' => array(
             'generate' => array(
-              'path' => 'accounts/{accountId}/reports/{savedReportId}',
+              'path' => 'reports/{savedReportId}',
               'httpMethod' => 'GET',
               'parameters' => array(
-                'accountId' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
                 'savedReportId' => array(
                   'location' => 'path',
                   'type' => 'string',
@@ -370,14 +328,9 @@ class Google_Service_AdExchangeSeller extends Google_Service
                 ),
               ),
             ),'list' => array(
-              'path' => 'accounts/{accountId}/reports/saved',
+              'path' => 'reports/saved',
               'httpMethod' => 'GET',
               'parameters' => array(
-                'accountId' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
@@ -391,21 +344,16 @@ class Google_Service_AdExchangeSeller extends Google_Service
           )
         )
     );
-    $this->accounts_urlchannels = new Google_Service_AdExchangeSeller_Resource_AccountsUrlchannels(
+    $this->urlchannels = new Google_Service_AdExchangeSeller_Resource_Urlchannels(
         $this,
         $this->serviceName,
         'urlchannels',
         array(
           'methods' => array(
             'list' => array(
-              'path' => 'accounts/{accountId}/adclients/{adClientId}/urlchannels',
+              'path' => 'adclients/{adClientId}/urlchannels',
               'httpMethod' => 'GET',
               'parameters' => array(
-                'accountId' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
                 'adClientId' => array(
                   'location' => 'path',
                   'type' => 'string',

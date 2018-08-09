@@ -18,8 +18,8 @@
 class Google_Service_Appengine_UrlDispatchRule extends Google_Model
 {
   public $domain;
+  public $module;
   public $path;
-  public $service;
 
   public function setDomain($domain)
   {
@@ -29,6 +29,14 @@ class Google_Service_Appengine_UrlDispatchRule extends Google_Model
   {
     return $this->domain;
   }
+  public function setModule($module)
+  {
+    $this->module = $module;
+  }
+  public function getModule()
+  {
+    return $this->module;
+  }
   public function setPath($path)
   {
     $this->path = $path;
@@ -36,13 +44,5 @@ class Google_Service_Appengine_UrlDispatchRule extends Google_Model
   public function getPath()
   {
     return $this->path;
-  }
-  public function setService($service)
-  {
-    $this->service = $service;
-  }
-  public function getService()
-  {
-    return $this->service;
   }
 }
