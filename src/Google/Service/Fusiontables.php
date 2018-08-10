@@ -16,7 +16,7 @@
  */
 
 /**
- * Service definition for Fusiontables (v2).
+ * Service definition for Fusiontables (v1).
  *
  * <p>
  * API for working with Fusion Tables data.</p>
@@ -53,8 +53,8 @@ class Google_Service_Fusiontables extends Google_Service
   {
     parent::__construct($client);
     $this->rootUrl = 'https://www.googleapis.com/';
-    $this->servicePath = 'fusiontables/v2/';
-    $this->version = 'v2';
+    $this->servicePath = 'fusiontables/v1/';
+    $this->version = 'v1';
     $this->serviceName = 'fusiontables';
 
     $this->column = new Google_Service_Fusiontables_Resource_Column(
@@ -416,46 +416,6 @@ class Google_Service_Fusiontables extends Google_Service
                 'replaceViewDefinition' => array(
                   'location' => 'query',
                   'type' => 'boolean',
-                ),
-              ),
-            ),'refetchSheet' => array(
-              'path' => 'tables/{tableId}/refetch',
-              'httpMethod' => 'POST',
-              'parameters' => array(
-                'tableId' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-              ),
-            ),'replaceRows' => array(
-              'path' => 'tables/{tableId}/replace',
-              'httpMethod' => 'POST',
-              'parameters' => array(
-                'tableId' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'delimiter' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'encoding' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'endLine' => array(
-                  'location' => 'query',
-                  'type' => 'integer',
-                ),
-                'isStrict' => array(
-                  'location' => 'query',
-                  'type' => 'boolean',
-                ),
-                'startLine' => array(
-                  'location' => 'query',
-                  'type' => 'integer',
                 ),
               ),
             ),'update' => array(

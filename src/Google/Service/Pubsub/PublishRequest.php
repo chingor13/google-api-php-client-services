@@ -15,24 +15,32 @@
  * the License.
  */
 
-class Google_Service_Pubsub_PublishRequest extends Google_Collection
+class Google_Service_Pubsub_PublishRequest extends Google_Model
 {
-  protected $collection_key = 'messages';
-  protected $messagesType = 'Google_Service_Pubsub_PubsubMessage';
-  protected $messagesDataType = 'array';
+  protected $messageType = 'Google_Service_Pubsub_PubsubMessage';
+  protected $messageDataType = '';
+  public $topic;
 
   /**
    * @param Google_Service_Pubsub_PubsubMessage
    */
-  public function setMessages($messages)
+  public function setMessage(Google_Service_Pubsub_PubsubMessage $message)
   {
-    $this->messages = $messages;
+    $this->message = $message;
   }
   /**
    * @return Google_Service_Pubsub_PubsubMessage
    */
-  public function getMessages()
+  public function getMessage()
   {
-    return $this->messages;
+    return $this->message;
+  }
+  public function setTopic($topic)
+  {
+    $this->topic = $topic;
+  }
+  public function getTopic()
+  {
+    return $this->topic;
   }
 }

@@ -17,6 +17,7 @@
 
 class Google_Service_Container_IPAllocationPolicy extends Google_Model
 {
+  public $allowRouteOverlap;
   public $clusterIpv4Cidr;
   public $clusterIpv4CidrBlock;
   public $clusterSecondaryRangeName;
@@ -27,8 +28,17 @@ class Google_Service_Container_IPAllocationPolicy extends Google_Model
   public $servicesIpv4CidrBlock;
   public $servicesSecondaryRangeName;
   public $subnetworkName;
+  public $tpuIpv4CidrBlock;
   public $useIpAliases;
 
+  public function setAllowRouteOverlap($allowRouteOverlap)
+  {
+    $this->allowRouteOverlap = $allowRouteOverlap;
+  }
+  public function getAllowRouteOverlap()
+  {
+    return $this->allowRouteOverlap;
+  }
   public function setClusterIpv4Cidr($clusterIpv4Cidr)
   {
     $this->clusterIpv4Cidr = $clusterIpv4Cidr;
@@ -108,6 +118,14 @@ class Google_Service_Container_IPAllocationPolicy extends Google_Model
   public function getSubnetworkName()
   {
     return $this->subnetworkName;
+  }
+  public function setTpuIpv4CidrBlock($tpuIpv4CidrBlock)
+  {
+    $this->tpuIpv4CidrBlock = $tpuIpv4CidrBlock;
+  }
+  public function getTpuIpv4CidrBlock()
+  {
+    return $this->tpuIpv4CidrBlock;
   }
   public function setUseIpAliases($useIpAliases)
   {
