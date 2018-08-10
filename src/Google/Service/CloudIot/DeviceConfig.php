@@ -17,19 +17,12 @@
 
 class Google_Service_CloudIot_DeviceConfig extends Google_Model
 {
-  public $binaryData;
   public $cloudUpdateTime;
+  protected $dataType = 'Google_Service_CloudIot_DeviceConfigData';
+  protected $dataDataType = '';
   public $deviceAckTime;
   public $version;
 
-  public function setBinaryData($binaryData)
-  {
-    $this->binaryData = $binaryData;
-  }
-  public function getBinaryData()
-  {
-    return $this->binaryData;
-  }
   public function setCloudUpdateTime($cloudUpdateTime)
   {
     $this->cloudUpdateTime = $cloudUpdateTime;
@@ -37,6 +30,20 @@ class Google_Service_CloudIot_DeviceConfig extends Google_Model
   public function getCloudUpdateTime()
   {
     return $this->cloudUpdateTime;
+  }
+  /**
+   * @param Google_Service_CloudIot_DeviceConfigData
+   */
+  public function setData(Google_Service_CloudIot_DeviceConfigData $data)
+  {
+    $this->data = $data;
+  }
+  /**
+   * @return Google_Service_CloudIot_DeviceConfigData
+   */
+  public function getData()
+  {
+    return $this->data;
   }
   public function setDeviceAckTime($deviceAckTime)
   {

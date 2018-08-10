@@ -17,10 +17,10 @@
 
 class Google_Service_Pubsub_ListTopicsResponse extends Google_Collection
 {
-  protected $collection_key = 'topics';
+  protected $collection_key = 'topic';
   public $nextPageToken;
-  protected $topicsType = 'Google_Service_Pubsub_Topic';
-  protected $topicsDataType = 'array';
+  protected $topicType = 'Google_Service_Pubsub_Topic';
+  protected $topicDataType = 'array';
 
   public function setNextPageToken($nextPageToken)
   {
@@ -33,15 +33,15 @@ class Google_Service_Pubsub_ListTopicsResponse extends Google_Collection
   /**
    * @param Google_Service_Pubsub_Topic
    */
-  public function setTopics($topics)
+  public function setTopic($topic)
   {
-    $this->topics = $topics;
+    $this->topic = $topic;
   }
   /**
    * @return Google_Service_Pubsub_Topic
    */
-  public function getTopics()
+  public function getTopic()
   {
-    return $this->topics;
+    return $this->topic;
   }
 }
