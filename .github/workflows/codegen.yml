@@ -33,7 +33,7 @@ jobs:
           python-version: 2.7
       - id: find-preferred-version
         run: |
-          version=$( cat discovery-artifact-manager/discoveries/index.json | jq -r '(.items[] | select(.name == "${{ matrix.service }}") | select(.preferred)).version)
+          version=$( cat discovery-artifact-manager/discoveries/index.json | jq -r '[.items[] | select(.name == "websecurityscanner" and .name != "discovery" and .name != "websecurityscanner") | select(.name == "admin" or .preferred).version])
           echo "::set-output version=$version"
       - run: ./google-api-php-client-services/.github/workflows/generate.sh ${{ matrix.service }} ${{ steps.find-preferred-version.outputs.version }}
       - uses: googleapis/code-suggester@v2 # takes the changes from git directory
