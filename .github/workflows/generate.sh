@@ -17,18 +17,19 @@
 set -ex
 
 SERVICE=$1
-VARIANT=$2
+VERSION=$2
 ROOT_DIR=$(realpath $(dirname "${BASH_SOURCE[0]}")/../../../)
 
 if [[ -z "${SERVICE}" ]]
 then
-  echo "Usage: ${0} <service> [variant]"
+  echo "Usage: ${0} <service> <version>"
   exit 1
 fi
 
-if [[ -z "${VARIANT}" ]]
+if [[ -z "${VERSION}" ]]
 then
-  VARIANT=default
+  echo "Usage: ${0} <service> <version>"
+  exit 1
 fi
 
 # install the local generators
@@ -36,18 +37,15 @@ python2 -m pip install -e ${ROOT_DIR}/google-api-php-client-services/generator -
 
 pushd ${ROOT_DIR}/discovery-artifact-manager
 
-for DISCOVERY in `ls discoveries/${SERVICE}.*.json`
-do
-  VERSION=$(basename ${DISCOVERY} | sed 's/\.json//' | cut -d. -f2-)
-  OUTPUT_DIR=${ROOT_DIR}/google-api-php-client-services/src
-  echo ${DISCOVERY}
-  echo ${VERSION}
-  echo ${OUTPUT_DIR}
-  # run the local generator
-  python2 -m googleapis.codegen \
-      --output_dir=${OUTPUT_DIR} \
-      --input=${DISCOVERY} \
-      --language=php \
-      --language_variant=${VARIANT} \
-      --package_path=api/services
-done
+DISCOVERY=discoveries/${SERVICE}.${VERSION}.json
+OUTPUT_DIR=${ROOT_DIR}/google-api-php-client-services/src
+echo "Discovery: ${DISCOVERY}"
+echo "Version: ${VERSION}"
+echo "Output: ${OUTPUT_DIR}"
+# run the local generator
+python2 -m googleapis.codegen \
+    --output_dir=${OUTPUT_DIR} \
+    --input=${DISCOVERY} \
+    --language=php \
+    --language_variant=default \
+    --package_path=api/services

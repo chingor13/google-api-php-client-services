@@ -31,7 +31,11 @@ jobs:
       - uses: actions/setup-python@v2
         with:
           python-version: 2.7
-      - run: ./google-api-php-client-services/.github/workflows/generate.sh ${{ matrix.service }}
+      - id: find-preferred-version
+        run: |
+          version=$( cat discovery-artifact-manager/discoveries/index.json | jq -r '(.items[] | select(.name == "${{ matrix.service }}") | select(.preferred)).version)
+          echo "::set-output version=$version"
+      - run: ./google-api-php-client-services/.github/workflows/generate.sh ${{ matrix.service }} ${{ steps.find-preferred-version.outputs.version }}
       - uses: googleapis/code-suggester@v2 # takes the changes from git directory
         env:
           ACCESS_TOKEN: ${{ secrets.YOSHI_CODE_BOT_TOKEN }}
